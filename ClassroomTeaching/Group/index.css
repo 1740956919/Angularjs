@@ -1,0 +1,135 @@
+html {
+  height: 100%; }
+
+body {
+  margin: 0 0 0 0;
+  height: 100%; }
+
+.group-container {
+  width: 100%;
+  height: 100%;
+  background: #000000; }
+  .group-container .app-toolbar .pagination-show {
+    display: flex;
+    margin-left: 60px; }
+    .group-container .app-toolbar .pagination-show .page-size-show {
+      width: 24px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: center;
+      margin-top: 20px; }
+    .group-container .app-toolbar .pagination-show .page-icon {
+      width: 60px;
+      height: 60px; }
+      .group-container .app-toolbar .pagination-show .page-icon i {
+        margin: 12px; }
+    .group-container .app-toolbar .pagination-show .bright {
+      font-size: 36px;
+      color: #FFFFFF; }
+    .group-container .app-toolbar .pagination-show .dark {
+      font-size: 36px;
+      color: #47494E; }
+  .group-container .app-toolbar .normal-text-show {
+    margin-left: 60px;
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+  .group-container .app-toolbar .wait-group-name {
+    width: 334px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .group-container .app-toolbar .wait-class {
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    width: 280px;
+    height: 20px;
+    margin-left: 16px;
+    margin-top: 20px; }
+  .group-container .group-title {
+    margin-left: 20px;
+    padding-top: 40px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+  .group-container .divid-line {
+    background: #47494E;
+    height: 1px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .group-container .grouped-students-container {
+    height: calc(100% - 188px);
+    width: 100%;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap; }
+    .group-container .grouped-students-container .group {
+      background: rgba(216, 216, 216, 0.05);
+      border: 1px solid #333333;
+      margin-left: 20px;
+      height: calc((100% - 41px) / 2);
+      width: calc((100% - 79px) / 3);
+      overflow-x: auto; }
+      .group-container .grouped-students-container .group .title {
+        display: flex;
+        margin-left: 20px;
+        margin-top: 20px;
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+        .group-container .grouped-students-container .group .title .member-count {
+          margin-left: 10px; }
+      .group-container .grouped-students-container .group .member-container {
+        display: flex;
+        flex-wrap: wrap; }
+        .group-container .grouped-students-container .group .member-container .member {
+          margin-left: 30px;
+          margin-right: 27px;
+          margin-top: 40px; }
+          .group-container .grouped-students-container .group .member-container .member img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+            margin-left: 3px; }
+          .group-container .grouped-students-container .group .member-container .member span {
+            color: #FFFFFF;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0px;
+            text-align: center;
+            display: block;
+            width: 58px;
+            margin-top: 7px;
+            overflow: hidden; }

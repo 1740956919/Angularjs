@@ -1,0 +1,42 @@
+[
+    {
+        "GroupName": "A组",
+        "GroupId":"groupA",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "B组",
+        "GroupId":"groupB",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "C组",
+        "GroupId":"groupC",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "D组",
+        "GroupId":"groupD",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "E组",
+        "GroupId":"groupE",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "F组",
+        "GroupId":"groupF",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "G组",
+        "GroupId":"groupG",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    },
+    {
+        "GroupName": "H组",
+        "GroupId":"groupH",
+          "ChannelUrl": "http://192.168.40.162:8081/screen/groupa"
+    }
+]

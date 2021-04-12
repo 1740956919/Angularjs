@@ -1,0 +1,301 @@
+.app-toolbar{
+    position: absolute;
+    bottom: 0px;
+    overflow: hidden;
+
+    .disable-show{
+        background-color: white;
+        color: black;
+    }
+
+    .bright-button{
+        background-color: #feb543 
+    }
+
+    .toolbar-button{
+        padding: 5px;
+    }
+    
+   
+    .zoom-button{
+        width: 60px;
+        height: 60px;  
+        margin-left: 60px;
+        background-color: #000000;  
+        .page-icon{  
+            margin: 12px;      
+            color: #ffffff;               
+            font-size: 36px;
+        }               
+        .bright{
+            background: linear-gradient(135deg, #f86a11 0%, #feb543 100%);
+        }
+    }
+    
+    
+
+    .pagination-show{     
+        margin-left: 10px;
+        display: flex;
+        justify-content: flex-start;
+        .page-direction{
+            width: 60px;       
+            height: 60px;                          
+            .page-icon{        
+                margin: 12px;            
+            }  
+            .bright{        
+                font-size: 36px;
+                color: #FFFFFF;
+            }
+            .dark{           
+                font-size: 36px;
+                color: #47494E;
+            }     
+        }    
+        .page-size-show{    
+            width: 24px;    
+            margin-top: 20px; 
+            color: #FFFFFF;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 14px;         
+            letter-spacing: 0px;
+            text-align: center;       
+        }
+
+        i[disabled="disabled"] {
+            pointer-events: none;//阻止JavaScript点击动作触发的事件
+        }
+    }
+
+    .showModel{
+        margin-left: 60px;
+
+        .model-active{
+            background-color: white;
+            color: black;
+        }
+    }
+
+    .screenInfo{
+        height: 60px;
+        width: 200px;
+        margin-left: 60px;
+
+        span{
+            height: 20px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #FFFFFF; 
+            font-family: PingFang SC;
+            font-weight: bold;               
+        }
+    }
+}
+
+.screen{
+    width: 100%;
+    height: calc(100vh - 80px);   
+
+    .phoneScreen{
+        width: 100%;
+        height: 100%;
+        .notic-info{
+            width: 520px;
+            height: 100%;
+            float: left;
+            color: white;
+            background: rgba(0,0,0,0.9);
+            h3{
+                margin-top: 321px;
+                margin-left: 38px;
+                font-size: 38px;
+                color: rgba(255,255,255,0.5);
+            }
+            p{
+                margin-left: 38px;
+                font-size: 17px;
+                color: rgba(255,255,255,0.5);
+            }
+        }
+        .phoneScreen-content{
+            background: #000000;
+            width: calc(100% - 520px);
+            height: 100%;
+            float: left;
+            .channel{        
+                display: inline-block;
+                box-sizing: border-box;   
+                .styleFull{
+                    width: 100%;
+                    height: 100%;
+                    .channelData{
+                        width: 100%;
+                        height: 100%;
+                        padding-top: 0px;
+                        padding-left: 0px;
+                        padding-right: 0px;
+                        text-align: center;     
+                        .show-warning .boardImg{
+                            width: 240px;
+                            height: 128px;   
+                            position:absolute;
+                            text-align: center;
+                            margin:auto;                           
+                            top:0;                           
+                            left:0;                           
+                            right:0;                          
+                            bottom:0;
+                            i{
+                                height: 80px;
+                                font-size: 60px;
+                                color: rgba(255,255,255, 0.6);  
+                            }  
+                            .message{                             
+                                width: 100%;
+                                height: 20%;    
+                                font-size: 20px;                         
+                                text-align: center;
+                                color: rgba(255,255,255, 0.6);
+                            }
+                        }
+                    }
+                }    
+                .styleOne{          
+                    margin-left: 12%;
+                    margin-right: 12%;
+                    height: 100%;
+                    width: 76%;  
+                    .channelData .show-warning .boardImg{
+                        width: 30%;
+                        height: 30%;   
+                        position:absolute;
+                        text-align: center;
+                        margin:auto;                           
+                        top:0;                           
+                        left:0;                           
+                        right:0;                          
+                        bottom:0;
+                        i{
+                            height: 80%;
+                            font-size: 60px;
+                            color: rgba(255,255,255, 0.6);  
+                        }  
+                        .message{                             
+                            width: 100%;
+                            height: 20%;                             
+                            text-align: center;
+                            color: rgba(255,255,255, 0.6);
+                        }
+                    }               
+                }
+                .styleTwo{
+                    width: 100%;
+                    height: 84%;                 
+                    margin-top: 6% ;   
+                    .channelData .show-warning .boardImg{
+                        width: 35%;
+                        height: 35%;   
+                        position:absolute;
+                        text-align: center;
+                        margin:auto;                           
+                        top:0;                           
+                        left:0;                           
+                        right:0;                          
+                        bottom:0;
+                        i{
+                            height: 80%;
+                            font-size: 60px;
+                            color: rgba(255,255,255, 0.6);  
+                        }  
+                        .message{                             
+                            width: 100%;
+                            height: 20%;                             
+                            text-align: center;
+                            color: rgba(255,255,255, 0.6);
+                        }
+                    }                      
+                }
+                .styleThree{
+                    width: 100%;
+                    height: 100%;
+                    .channelData .show-warning .boardImg{
+                        width: 40%;
+                        height: 40%;   
+                        position:absolute;
+                        text-align: center;
+                        margin:auto;                           
+                        top:0;                           
+                        left:0;                           
+                        right:0;                          
+                        bottom:0;
+                        i{
+                            height: 80%;
+                            font-size: 50px;
+                            color: rgba(255,255,255, 0.6);  
+                        }  
+                        .message{                             
+                            width: 100%;
+                            height: 20%;   
+                            font-size: 5px;                          
+                            text-align: center;
+                            color: rgba(255,255,255, 0.6);
+                        }
+                    }          
+                   
+                }             
+                .channelData{
+                    height: calc(100% - 60px);
+                    padding-top: 30px;
+                    padding-left: 30px;
+                    padding-right: 30px;
+
+                    .show-warning{
+                        width: 100%;
+                        height: 100%;                       
+                        position:relative;                                  
+                    }
+                }
+                .channelName{
+                    padding-left: 30px;                 
+                    height: 60px;
+                    color: #999999;
+                    span{
+                        height: 22px;
+                        line-height: 60px;
+                        padding-bottom: 19px;
+                    }
+                }
+                
+            }
+            .styleFull{
+                width: 100%;
+                height: 100%;
+            }
+            .styleOne{
+                width: 50%;
+                height: 50%;
+            }
+            .styleTwo{
+                width: 33.3%;
+                height: 50%;      
+            }
+            .styleThree{
+                width: 25%;
+                height: 33.3%;     
+            }
+        }
+
+        .notShowNotice{
+            width: 100%;
+        }
+    }
+}
+
+
+
+#fullScreen{
+    margin-left: 60px;
+}

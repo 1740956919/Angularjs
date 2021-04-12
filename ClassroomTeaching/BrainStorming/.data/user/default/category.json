@@ -1,0 +1,142 @@
+[
+    {
+      "CategoryId": "cat01",
+      "Name": "文字演变",
+      "IsVoted": false,
+      "VoteCount": 0,
+      "Ideas": [
+        {
+          "IdeaId": "3-3",
+          "IdeaContent": "2-植被缺少（制造成一次性筷子、家具等产物）",
+          "AuthorId": "m3"
+        },
+        {
+          "IdeaId": "4-3",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m4"
+        },
+        {
+          "IdeaId": "6-6",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-7",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-8",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-9",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-10",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-11",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-12",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-13",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-14",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        },
+        {
+          "IdeaId": "6-15",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        }
+      ]
+    },
+    {
+      "CategoryId": "cat02",
+      "Name": "文字类型",
+      "IsVoted": false,
+      "VoteCount": 0,
+      "Ideas": [
+        {
+          "IdeaId": "5-3",
+          "IdeaContent": "2-植被缺少（制造成一次性筷子、家具等产物）",
+          "AuthorId": "m5"
+        },
+        {
+          "IdeaId": "6-3",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        }
+      ]
+    },
+    {
+      "CategoryId": "cat03",
+      "Name": "文字分类",
+      "IsVoted": false,
+      "VoteCount": 0,
+      "Ideas": [
+        {
+          "IdeaId": "3-4",
+          "IdeaContent": "2-植被缺少（制造成一次性筷子、家具等产物）",
+          "AuthorId": "m3"
+        },
+        {
+          "IdeaId": "4-4",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m4"
+        }
+      ]
+    },
+    {
+      "CategoryId": "cat04",
+      "Name": "文字状态",
+      "IsVoted": false,
+      "VoteCount": 0,
+      "Ideas": [
+        {
+          "IdeaId": "5-4",
+          "IdeaContent": "2-植被缺少（制造成一次性筷子、家具等产物）",
+          "AuthorId": "m5"
+        },
+        {
+          "IdeaId": "6-4",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        }
+      ]
+    },
+    {
+      "CategoryId": "cat05",
+      "Name": "文字过程",
+      "IsVoted": false,
+      "VoteCount": 0,
+      "Ideas": [
+        {
+          "IdeaId": "5-5",
+          "IdeaContent": "2-植被缺少（制造成一次性筷子、家具等产物）",
+          "AuthorId": "m5"
+        },
+        {
+          "IdeaId": "6-5",
+          "IdeaContent": "track  表示一些sample的集合，对于媒体数据来说，track表示一个视频或音频序列。",
+          "AuthorId": "m6"
+        }
+      ]
+    }
+  ]

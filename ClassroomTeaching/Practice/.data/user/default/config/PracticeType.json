@@ -1,0 +1,44 @@
+[
+	{
+		"Name": "单选",
+		"Code": "SINGLE",
+		"Title":"单选题",
+		"Category": "CHOICE"
+	},
+	{
+		"Name": "多选",	
+		"Code": "MULTIPLE",
+		"Title":"多选题",
+		"Category": "CHOICE"
+	},
+	{
+		"Name": "填空",		
+		"Code": "FILL_BLANK",
+		"Title":"填空题",
+		"Category": "CHOICE"
+    },
+    {
+		"Name": "简答",		
+		"Code": "SHORT_ANSWER",
+		"Title":"简答题",
+		"Category": "TEXT"
+	},
+	{
+		"Name": "录音",		
+		"Code": "RECORD",
+		"Title":"录音题",
+		"Category": "TEXT"
+	},
+	{
+		"Name": "拍照",		
+		"Code": "PHOTO",
+		"Title":"拍照题",
+		"Category": "TEXT"
+	},
+	{
+		"Name": "口语",		
+		"Code": "ORAL",
+		"Title":"口语题",
+		"Category": "TEXT"
+    }
+]

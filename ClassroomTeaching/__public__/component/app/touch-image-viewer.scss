@@ -1,0 +1,39 @@
+$animation-props: left, top, width, height, transform;
+
+@function expand-transition-list($props, $duration, $timing) {
+    $result: "";
+
+    @each $prop in $props {
+        @if $result != "" {
+            $result: $result + ", ";
+        }
+
+        $result: $result + "#{$prop} #{$duration} #{$timing}"
+    }
+
+    @return unquote($result);
+}
+
+touch-image-viewer {
+    position: relative;
+    display: block;
+
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .image {
+            position: absolute;
+        }
+    }
+
+    &:not(.image-dragging):not(.image-scaling) {
+        .image-container {
+            .image:not(.no-transition) {
+                transition: expand-transition-list($animation-props, 0.2s, ease);
+            }
+        }
+    }
+}

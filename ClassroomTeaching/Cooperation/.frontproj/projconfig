@@ -1,0 +1,14 @@
+{
+  "[version]": "1.0",
+  "name": "ClassroomTeaching.Cooperation",
+  "server": {
+    "port": 13452,
+    "useProfile": true,
+    "useTimestamp": true
+  },
+  "include_files": [
+     "../../__public__/**/*.*",
+     "../__public__/**/*.*"
+  ],
+  "exclude_files": []
+}

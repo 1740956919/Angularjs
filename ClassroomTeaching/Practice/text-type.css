@@ -1,0 +1,267 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px; }
+  .app-toolbar .progress {
+    width: 100%;
+    height: 100%;
+    display: flex; }
+    .app-toolbar .progress span {
+      font-size: 14px;
+      line-height: 60px;
+      margin-left: 60px; }
+  .app-toolbar .complete {
+    width: 100%;
+    height: 100%;
+    display: flex; }
+    .app-toolbar .complete .replyResult {
+      margin-left: 60px;
+      display: flex;
+      height: 60px; }
+      .app-toolbar .complete .replyResult span {
+        font-size: 14px;
+        line-height: 60px; }
+      .app-toolbar .complete .replyResult span:last-child {
+        margin-left: 60px; }
+    .app-toolbar .complete .mutual-score {
+      margin-left: 10px; }
+    .app-toolbar .complete .image-set-inco {
+      margin-left: 60px; }
+      .app-toolbar .complete .image-set-inco button {
+        border: 0px; }
+      .app-toolbar .complete .image-set-inco .page-icon {
+        font-size: 36px;
+        font-weight: normal; }
+      .app-toolbar .complete .image-set-inco .disabled {
+        color: rgba(255, 255, 255, 0.3); }
+
+.detail {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #000000;
+  display: flex; }
+  .detail .answer {
+    height: 100%;
+    width: 660px;
+    border-right: solid #47494E 1px; }
+    .detail .answer .title {
+      width: 100%;
+      height: 8.6%;
+      padding-top: 40px;
+      padding-left: 20px;
+      border-bottom: solid #47494E 1px; }
+      .detail .answer .title span {
+        height: 25px;
+        width: 72px;
+        font-size: 18px;
+        color: #ffffff;
+        font-family: PingFang SC;
+        font-weight: regular;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+    .detail .answer .answerList::-webkit-scrollbar {
+      display: none; }
+    .detail .answer .answerList {
+      width: 100%;
+      height: 91.4%;
+      overflow: auto; }
+      .detail .answer .answerList .answerContents {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        align-content: flex-start; }
+        .detail .answer .answerList .answerContents .answerContent {
+          width: 25%;
+          height: 110px;
+          float: left;
+          background-color: whitesmoke;
+          border: 1px solid black;
+          padding: 10px; }
+          .detail .answer .answerList .answerContents .answerContent span {
+            max-height: 87px;
+            display: block;
+            overflow: hidden;
+            font-family: PingFang SC;
+            font-weight: regular;
+            font-size: 16px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left; }
+        .detail .answer .answerList .answerContents .answerColor {
+          background: #FF6F20;
+          color: white; }
+      .detail .answer .answerList .answerImage {
+        width: 25%;
+        height: 110px;
+        float: left;
+        border: 1px solid #333333;
+        text-align: center; }
+        .detail .answer .answerList .answerImage div {
+          height: 100%;
+          width: 100%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat; }
+        .detail .answer .answerList .answerImage .unSelected {
+          opacity: 0.5; }
+      .detail .answer .answerList .answerAudio {
+        width: 25%;
+        height: 110px;
+        float: left; }
+        .detail .answer .answerList .answerAudio .studentInfo {
+          width: 100%;
+          height: 100%; }
+          .detail .answer .answerList .answerAudio .studentInfo img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin: 16px 55px 0px; }
+          .detail .answer .answerList .answerAudio .studentInfo span {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            color: #ffffff;
+            font-size: 14px; }
+  .detail .student {
+    height: 100%;
+    width: calc(100vw - 660px); }
+    .detail .student .studentInfo {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 60px; }
+      .detail .student .studentInfo .studentPhoto {
+        width: 100px;
+        height: 100px;
+        margin-top: 40px; }
+        .detail .student .studentInfo .studentPhoto img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%; }
+      .detail .student .studentInfo .studentName {
+        width: 80px;
+        height: 100px;
+        overflow: hidden;
+        margin-top: 40px;
+        margin-left: 10px; }
+        .detail .student .studentInfo .studentName span {
+          font-size: 18px;
+          line-height: 100px;
+          color: #FFFFFF; }
+    .detail .student .content {
+      width: 100%;
+      height: calc(100vh - 260px);
+      text-align: center;
+      overflow: auto; }
+      .detail .student .content textarea {
+        width: 1062px;
+        height: 100%;
+        background-color: #000000;
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: regular;
+        font-size: 36px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+      .detail .student .content .comtent-image {
+        width: 1136px;
+        height: 764px;
+        margin-left: 20px; }
+      .detail .student .content .audio-content {
+        width: 100%;
+        height: 100%; }
+        .detail .student .content .audio-content .muice-inco {
+          height: 720px;
+          width: 100%; }
+          .detail .student .content .audio-content .muice-inco i {
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 285px; }
+        .detail .student .content .audio-content .player {
+          min-height: 100px;
+          height: 100px;
+          width: 100%;
+          border-top-style: solid;
+          border-top-width: 1px;
+          border-top-color: #333;
+          display: flex;
+          align-items: center; }
+          .detail .student .content .audio-content .player .audio-player {
+            margin-left: 60px; }
+    .detail .student .person-warnning {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .detail .student .person-warnning .adBoard {
+        width: 240px;
+        height: 128px; }
+        .detail .student .person-warnning .adBoard .boardImg {
+          width: 240px;
+          height: 100px;
+          text-align: center; }
+          .detail .student .person-warnning .adBoard .boardImg i {
+            font-size: 72.34px;
+            color: rgba(255, 255, 255, 0.6); }
+        .detail .student .person-warnning .adBoard .message {
+          width: 240px;
+          height: 28px;
+          font-size: 20px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.3); }
+  .detail .warnning {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #000000; }
+    .detail .warnning .title {
+      width: 100%;
+      height: 8.6%;
+      padding-top: 40px;
+      padding-left: 20px;
+      border-bottom: solid #47494E 1px; }
+      .detail .warnning .title span {
+        height: 25px;
+        width: 72px;
+        font-size: 18px;
+        color: #ffffff;
+        font-family: PingFang SC;
+        font-weight: regular;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+    .detail .warnning .warnning-content {
+      width: 100%;
+      height: 91.4%;
+      display: flex;
+      justify-content: center; }
+      .detail .warnning .warnning-content .adBoard {
+        width: 240px;
+        height: 128px;
+        margin-top: 350px; }
+        .detail .warnning .warnning-content .adBoard .boardImg {
+          width: 240px;
+          height: 100px;
+          text-align: center; }
+          .detail .warnning .warnning-content .adBoard .boardImg i {
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.6); }
+        .detail .warnning .warnning-content .adBoard .message {
+          width: 240px;
+          height: 28px;
+          font-size: 20px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.3); }
+
+#fillAnswer {
+  width: 100%;
+  height: 50%; }
+
+#end-practice {
+  margin-right: 60px; }

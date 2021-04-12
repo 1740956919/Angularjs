@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Cooperation" param="id={0}" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Fonts/fonts.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>协作讨论状态</title>
+</head>
+<body ng-app="ClassroomTeaching.Cooperation" ng-controller="MainCtrl">
+    <!-- page content here -->
+    <div class="app-toolbar" ng-cloak>
+        <button class="toolbar-button square hilight-primary side-bar-location hover-cursor" ng-class="{actived:isSidebarOpening}" ng-click="clickSidebar()">
+            侧边栏
+        </button>
+        
+        <button class="toolbar-button square hover-cursor" ng-show="isDiscussing" ng-disable="isReplacing" ng-class="{actived:member.MemberId == chairId}" ng-repeat="member in groupMembers" button-text="member.Name" ng-click="replaceChair(member)">
+        </button>
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    <script src="/SystemConfig.js"></script>
+
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script src="index-service.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/toolbar-button.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

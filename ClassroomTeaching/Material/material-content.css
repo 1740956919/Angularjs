@@ -1,0 +1,13 @@
+.error-state {
+  margin-top: 360px; }
+
+.content-view-body {
+  height: 100%;
+  width: 100%; }
+
+.material-container {
+  padding-top: 20px; }
+
+#document-view {
+  display: table;
+  margin: 0 auto; }

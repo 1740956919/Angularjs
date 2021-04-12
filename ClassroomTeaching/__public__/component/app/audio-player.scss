@@ -1,0 +1,215 @@
+@import "../../../../__public__/style/app/variable.scss";
+@import "../../../../__public__/style/app/function.scss";
+
+
+$audio-player-height: 62px;
+
+@mixin make-layout-row() {
+    display: flex;
+    flex-direction: row;
+}
+
+.lui-audio-player {
+    /* control buttons */
+
+    $button-outline-color: $app-bg-invert;
+    $control-btn-size: $audio-player-height - 2px;
+    $control-btn-figure-size: 16px;
+    $seek-btn-size: 46px;
+    $seek-btn-margin: 27px;
+    $seek-arrow-size: 16px;
+
+    $sqrt-3: 1.73205;
+
+    // 等边三角形计算
+    @function compute-et-edge-size($width) {
+        @return $width * 2 / $sqrt-3;
+    }
+
+    @function compute-et-offset($container-size, $width, $border-size) {
+        @return ($container-size - $width) / 2 + $border-size;
+    }
+
+    @mixin make-et-offsets($et-width, $container-size, $border-size) {
+        left: compute-et-offset($container-size, $et-width, $border-size) + 1px;
+        top: compute-et-offset($container-size, compute-et-edge-size($et-width), 0px);
+    }
+
+    @include make-layout-row();
+
+    .audio-player-control {
+        @include make-layout-row();
+        padding-left: $seek-arrow-size / 2;
+        padding-right: $seek-arrow-size / 2;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
+        max-width: 100%;
+
+        button {
+            display: block;
+            // float: left;
+            outline: 0;
+        }
+
+        .control-btn {
+            position: relative;
+            width: $audio-player-height;
+            height: $audio-player-height;
+            border: 3px solid $button-outline-color;
+            border-radius: 50%;
+            background-color: transparent;
+
+            i {
+                font-size: 24px;
+            }
+
+            i, span {
+                color: $color-primary-1;
+                transition: opacity ease 0.2s;
+            }
+
+            &:hover {
+                i, span {
+                    opacity: 0.7;
+                }
+            }
+
+            &.btn-stop {
+                &::after {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    width: $control-btn-figure-size;
+                    height: $control-btn-figure-size;
+                    top: ($control-btn-size - $control-btn-figure-size) / 2;
+                    left: ($control-btn-size - $control-btn-figure-size) / 2;
+                    border-radius: 4px;
+                    background-image: $gradient-primary;
+                    transition: opacity ease 0.2s;
+                }
+
+                &:hover::after {
+                    opacity: 0.7;
+                }
+            }
+
+            &.btn-play {
+                i {
+                    left: 2px;
+                    position: relative;
+                }
+            }
+        }
+        // seek buttons
+        .control-btn-seek-left,
+        .control-btn-seek-right {
+            position: relative;
+            width: $seek-btn-size;
+            height: $seek-btn-size;
+            text-align: center;
+            line-height: $seek-btn-size - 2px;
+            border-radius: 50%;
+            border: 1px solid $button-outline-color;
+            font-size: 17px;
+            color: $button-outline-color;
+            background-color: transparent;
+
+            &:hover {
+                color: $color-primary-1;
+            }
+
+            .arrow {
+                position: absolute;
+                display: block;
+                top: $seek-btn-size / 2;
+                width: $seek-arrow-size;
+                height: $seek-arrow-size;
+                background-color: $app-bg-default;
+
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    @include make-triangle(bottom, $seek-arrow-size, $seek-arrow-size * 0.75, $button-outline-color)
+                }
+            }
+        }
+
+        .control-btn-seek-left {
+            margin-right: $seek-btn-margin;
+
+            .arrow {
+                left: -$seek-arrow-size / 2;
+            }
+        }
+
+        .control-btn-seek-right {
+            margin-left: $seek-btn-margin;
+
+            .arrow {
+                right: -$seek-arrow-size / 2;
+            }
+        }
+    }
+    /* progress slider */
+
+    $progress-control-height: 49.5px;
+    $progress-groove-height: 2px;
+    $progress-groove-color: $border-color-control-highlit;
+    $progress-slide-height: 30px;
+
+    .audio-progress {
+        $progress-ani-timing-func: cubic-bezier(0.23, 0.3, 0.63, 0.97);
+
+        position: relative;
+        width: 305px;
+        height: $progress-control-height;
+        padding: ($progress-control-height - $progress-groove-height) / 2 0;
+
+        $progress-margin: ($audio-player-height - $progress-control-height) / 2;
+        margin: $progress-margin 0 $progress-margin 60px;
+
+        .progress-groove {
+            position: relative;
+            height: 2px;
+            padding: 0;
+            background-color: $progress-groove-color;
+
+            .progress-sub {
+                position: absolute;
+                height: 100%;
+                left: 0;
+                top: 0;
+                right: 100%;
+                background-color: $color-primary-1;
+
+                &:not(.no-anim) {
+                    transition: right 0.2s $progress-ani-timing-func;
+                }
+            }
+        }
+
+        .progress-slide {
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: ($progress-control-height - $progress-slide-height) / 2;
+            width: 97px;
+            height: $progress-slide-height;
+            font-size: $text-size-hint;
+            line-height: $progress-slide-height;
+            text-align: center;
+            color: $text-color-base;
+            border-radius: 15px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+            cursor: pointer;
+            background-color: #47494e;
+            transform: translateZ(0); // enforce 3d transformation to enable GPU computing to prevent text jiggling
+            &:not(.no-anim) {
+                transition: left 0.2s $progress-ani-timing-func;
+            }
+        }
+    }
+}

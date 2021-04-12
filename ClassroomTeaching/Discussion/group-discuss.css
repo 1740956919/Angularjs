@@ -1,0 +1,125 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px; }
+  .app-toolbar .group-text {
+    margin-left: 60px;
+    margin-right: 60px; }
+    .app-toolbar .group-text span {
+      line-height: 60px;
+      font-size: 14px; }
+  .app-toolbar .zoom-button {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+    margin-left: 60px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(13.6px);
+    color: #fff;
+    text-align: center; }
+    .app-toolbar .zoom-button .page-icon {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 36px; }
+  .app-toolbar .nav-mode {
+    display: flex;
+    align-items: center;
+    width: 132px;
+    height: 60px; }
+    .app-toolbar .nav-mode .page-number {
+      width: 60px;
+      height: 60px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 60px;
+      letter-spacing: 0px;
+      text-align: center; }
+    .app-toolbar .nav-mode .page-icon {
+      font-size: 36px; }
+    .app-toolbar .nav-mode i[disabled="disabled"] {
+      pointer-events: none; }
+    .app-toolbar .nav-mode .nav-btn-bright {
+      color: #FFFFFF; }
+    .app-toolbar .nav-mode .nav-btn-dark {
+      color: #47494E; }
+  .app-toolbar .arrangeMentMode {
+    margin-left: 60px; }
+    .app-toolbar .arrangeMentMode .mode-active {
+      background-color: white;
+      color: black; }
+  .app-toolbar .btn-active {
+    background-color: #feb543; }
+
+.screen {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #000000; }
+  .screen .screen-mode {
+    display: inline-block;
+    box-sizing: border-box; }
+    .screen .screen-mode .screen-data .screen-urlData {
+      height: calc(100% - 60px);
+      padding-top: 30px;
+      padding-left: 30px;
+      padding-right: 30px; }
+    .screen .screen-mode .screen-data .screen-nameData {
+      padding-left: 30px;
+      height: 60px;
+      color: #999999; }
+      .screen .screen-mode .screen-data .screen-nameData span {
+        height: 22px;
+        line-height: 60px;
+        padding-bottom: 19px; }
+    .screen .screen-mode .dataOne {
+      margin-left: 12%;
+      margin-right: 12%;
+      height: 100%;
+      width: 76%; }
+    .screen .screen-mode .dataTwo {
+      width: 100%;
+      height: 84%;
+      margin-top: 6%; }
+    .screen .screen-mode .dataThree {
+      width: 100%;
+      height: 100%; }
+  .screen .modeOne {
+    width: 50%;
+    height: 50%; }
+  .screen .modeTwo {
+    width: 33.3%;
+    height: 50%; }
+  .screen .modeThree {
+    width: 25%;
+    height: 33.3%; }
+  .screen .full-screen {
+    width: 100%;
+    height: 100%; }
+  .screen .adBoard {
+    width: 240px;
+    height: 130px;
+    position: absolute;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px; }
+    .screen .adBoard .boardImg {
+      width: 240px;
+      height: 100px;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center; }
+      .screen .adBoard .boardImg i {
+        font-size: 72px;
+        color: rgba(255, 255, 255, 0.6); }
+    .screen .adBoard .message {
+      width: 240px;
+      height: 30px;
+      font-size: 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6); }

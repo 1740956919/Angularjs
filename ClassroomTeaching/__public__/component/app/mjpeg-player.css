@@ -1,0 +1,7 @@
+mjpeg-player {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden; }
+  mjpeg-player img {
+    height: 100%; }

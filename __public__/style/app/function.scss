@@ -1,0 +1,93 @@
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+@function match-unit($number, $ref) {
+    $unit-val: $ref / strip-unit($ref);
+    @return $number * $unit-val;
+}
+
+@function sqrt($value) {
+    $v: strip-unit($value);
+
+    @if ($v < 0) {
+        @return "no solution";
+    }
+
+    @if ($v == 0) {
+        @return $value;
+    }
+
+    @if ($v == 1) {
+        @return $value;
+    }
+
+    // simple newton's method implementation
+
+    $x0: $v / $v;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - (strip-unit($x0) * $x0 - abs($v)) / (2 * $x0);
+
+        @if (abs($x1 - $x0) < 1e-5) {
+            @return match-unit($x1, $value);
+        }
+
+        $x0: $x1;
+    }
+
+    @return match-unit($x1, $value);
+}
+
+@function pow($value, $exp) {
+    $v: strip-unit($value);
+
+    @if ($v == 0) {
+        @return $value;
+    }
+
+    @if ($v == 1) {
+        @return $value;
+    }
+
+    $r: 1;
+
+    @if $exp > 0 {
+        @for $i from 1 through $exp {
+            $r: $r * $v;
+        }
+    }
+
+    @return match-unit($r, $value);
+}
+
+@mixin make-triangle($dir, $base-edge-size, $side-edge-size, $color: #000) {
+    width: 0;
+    height: 0;
+
+    $side-width: $base-edge-size / 2;
+    $tri-height: sqrt(pow($side-edge-size, 2) - (pow($base-edge-size, 2) / 4));
+
+    @if ($dir == up) {
+        border-bottom: $tri-height solid $color;
+        border-left: $side-width solid transparent;
+        border-right: $side-width solid transparent;
+    } @else if ($dir == right) {
+        border-left: $tri-height solid $color;
+        border-top: $side-width solid transparent;
+        border-bottom: $side-width solid transparent;
+    } @else if ($dir == bottom) {
+        border-top: $tri-height solid $color;
+        border-left: $side-width solid transparent;
+        border-right: $side-width solid transparent;
+    } @else if ($dir == left) {
+        border-right: $tri-height solid $color;
+        border-top: $side-width solid transparent;
+        border-bottom: $side-width solid transparent;
+    }
+}

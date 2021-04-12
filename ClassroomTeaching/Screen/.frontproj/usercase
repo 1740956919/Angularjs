@@ -1,0 +1,12 @@
+[
+    {
+        "name": "teacherScreen",
+        "user": "",
+        "url":"/teacher-screen.html?lessonId=scene_fae67ca5972346abaa67383344eb8e80"
+    },
+    {
+        "name": "groupScreen",
+        "user": "",
+        "url":"/group-screen.html?lessonId=scene_fae67ca5972346abaa67383344eb8e80"
+    }
+]

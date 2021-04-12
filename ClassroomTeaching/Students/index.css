@@ -1,0 +1,222 @@
+html {
+  height: 100%; }
+
+body {
+  margin: 0 0 0 0;
+  height: 100%;
+  overflow: hidden; }
+
+#right-table-margin {
+  margin-right: 0px; }
+
+.students-container {
+  width: 100%;
+  height: 100%;
+  background: #000000; }
+  .students-container .top-container {
+    width: 100%;
+    height: 270px; }
+    .students-container .top-container .top-info {
+      width: 1019px;
+      height: 159px;
+      display: flex;
+      padding-top: 59px;
+      padding-left: 80px; }
+      .students-container .top-container .top-info .board-left {
+        height: 159px;
+        border-radius: 50%; }
+      .students-container .top-container .top-info .sign-left {
+        height: 159px; }
+      .students-container .top-container .top-info .board-right {
+        width: 821px;
+        height: 74px;
+        margin-left: 39px;
+        margin-top: 26px; }
+        .students-container .top-container .top-info .board-right .message-title {
+          color: #999999;
+          font-family: PingFang SC;
+          font-weight: bold;
+          margin: 0px;
+          font-size: 30px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+        .students-container .top-container .top-info .board-right .sign-count {
+          color: #FF6F20;
+          font-family: PingFang SC;
+          font-weight: bold;
+          font-size: 30px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          margin-right: 2px; }
+        .students-container .top-container .top-info .board-right .message-content {
+          margin-top: 10px;
+          color: #999999;
+          font-family: PingFang SC;
+          font-weight: normal;
+          font-size: 16px;
+          margin-top: 10px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+  .students-container .divide-line {
+    width: calc(100% - 20px);
+    height: 1px;
+    background: #47494E;
+    margin-left: 10px; }
+  .students-container .middle-container {
+    width: 100%;
+    height: calc(100% - 350px);
+    display: flex; }
+    .students-container .middle-container .null-student {
+      margin-top: 294px;
+      margin-left: 800px;
+      width: 240px;
+      height: 128px;
+      position: absolute; }
+      .students-container .middle-container .null-student i {
+        font-size: 80px;
+        color: #ADADAD;
+        margin-left: 78px; }
+      .students-container .middle-container .null-student div {
+        margin-top: 20px;
+        color: rgba(255, 255, 255, 0.3);
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: center; }
+    .students-container .middle-container .student-list-table:hover {
+      cursor: default; }
+    .students-container .middle-container .student-list-table {
+      width: 30.5%;
+      height: 100%;
+      margin-left: 10px;
+      margin-right: 62px; }
+      .students-container .middle-container .student-list-table img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%; }
+      .students-container .middle-container .student-list-table .left-table {
+        width: 100%;
+        margin-right: 200px;
+        border-spacing: 0;
+        color: #FFFFFF; }
+        .students-container .middle-container .student-list-table .left-table .header-row td {
+          color: rgba(255, 255, 255, 0.3);
+          font-weight: bold; }
+        .students-container .middle-container .student-list-table .left-table tr {
+          font-family: PingFang SC;
+          font-weight: bold;
+          font-size: 20px;
+          height: 54px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+          .students-container .middle-container .student-list-table .left-table tr td {
+            font-family: PingFang SC;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+            height: 54px;
+            padding-left: 10px;
+            border-bottom: 1px solid #333333; }
+        .students-container .middle-container .student-list-table .left-table .no-logon {
+          color: rgba(255, 255, 255, 0.2); }
+        .students-container .middle-container .student-list-table .left-table .no-sign {
+          background: rgba(255, 147, 25, 0.7); }
+        .students-container .middle-container .student-list-table .left-table .sign {
+          background: rgba(50, 122, 92, 0.7); }
+        .students-container .middle-container .student-list-table .left-table tr.content-row {
+          cursor: pointer; }
+        .students-container .middle-container .student-list-table .left-table td.name {
+          display: flex;
+          align-items: center; }
+          .students-container .middle-container .student-list-table .left-table td.name .span-distance {
+            padding: 0px 1px 1px 10px; }
+        .students-container .middle-container .student-list-table .left-table .sign-state {
+          width: 104px;
+          height: 38px;
+          color: #FFFFFF;
+          font-family: PingFang SC;
+          font-weight: normal;
+          font-size: 20px;
+          line-height: 22px;
+          letter-spacing: 0px;
+          text-align: left;
+          margin-left: -10px; }
+          .students-container .middle-container .student-list-table .left-table .sign-state span {
+            vertical-align: -webkit-baseline-middle;
+            margin-left: 10px; }
+        .students-container .middle-container .student-list-table .left-table .selected-student {
+          background: #FF6F20; }
+  .students-container .app-toolbar button {
+    cursor: pointer; }
+  .students-container .app-toolbar .normal-text-show {
+    margin-left: 26px;
+    margin-top: 30px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+  .students-container .app-toolbar .sort-show {
+    margin-left: 0px; }
+    .students-container .app-toolbar .sort-show button {
+      cursor: pointer; }
+  .students-container .app-toolbar .sort-margin-change {
+    margin-left: 10px; }
+  .students-container .app-toolbar .cover-margin {
+    margin-right: 60px; }
+  .students-container .app-toolbar .pagination-show {
+    display: flex;
+    margin-right: 60px; }
+    .students-container .app-toolbar .pagination-show .page-size-show {
+      width: 24px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: center;
+      margin-top: 20px; }
+    .students-container .app-toolbar .pagination-show .page-icon {
+      width: 60px;
+      height: 60px; }
+      .students-container .app-toolbar .pagination-show .page-icon i {
+        margin: 12px;
+        cursor: pointer; }
+    .students-container .app-toolbar .pagination-show .bright {
+      font-size: 36px;
+      color: #FFFFFF; }
+    .students-container .app-toolbar .pagination-show .dark {
+      font-size: 36px;
+      color: #47494E; }
+  .students-container .app-toolbar .sign-time {
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+  .students-container .app-toolbar .wait-class {
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    width: 280px;
+    height: 20px;
+    margin-left: 16px;
+    margin-top: 20px; }

@@ -1,0 +1,201 @@
+.lessonSelect-container{
+    height: 100%;    
+    width: 100%;
+    overflow: hidden;
+}
+
+.top-record-contain{
+    width: 100%;
+    height: 270px ;
+    .top-info{
+        width: 1019px;
+        height: 159px;
+        display: flex;
+        padding-top: 59px;
+        padding-left: 80px;
+        .board-left{
+            width: 159px;
+            height: 159px;         
+        }
+        .board-right{
+            width: 821px;
+            height: 74px;
+            margin-left: 39px;
+            margin-top: 26px;
+            .message-title{
+                color: #999999;
+                font-family: PingFang SC;
+                font-weight: bold;
+                margin: 0px;
+                font-size: 30px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+            .message-content{
+                margin-top: 10px;
+                color: #999999;
+                font-family: PingFang SC;
+                font-weight: regular;
+                font-size: 16px;
+                margin-top: 10px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+}
+.file-record-contain{
+    width: 100%;
+    height: calc(100vh - 350px);
+    .line{
+        margin-left: 10px;
+        margin-right: 10px;    
+        background: #333333;
+        width: 100%;
+        height: 1px;      
+    }
+
+    .student-list-table{
+        width: 100%;
+        height: 100%;
+        margin-left: 10px;
+        margin-right: 10px;       
+        .table{
+            width: 100%;          
+            border-spacing: 0;
+            color: #FFFFFF;
+            .header-row{
+                border-top: solid #333333 1px;
+                td{
+                    color: #333333;
+                    font-weight: bold;
+                    .page-icon{
+                        font-size: 14.18px;
+                    }
+                }
+            }
+        
+            tr:hover{
+                outline: none;
+            }
+
+            tr {               
+                font-family: PingFang SC;
+                font-weight: bold;
+                font-size: 20px;
+                height: 54px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                //cursor: pointer;
+                td {
+                    font-family: PingFang SC;
+                    font-weight: normal;
+                    font-size: 20px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    height: 54px;
+                    padding-left: 10px;
+                    border-bottom: 1px solid #333333;                               
+                }
+               
+                .un-select{
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 14.18px;
+                    height: 14.18px;
+                    border-radius: 50%;
+                    border: 1px solid #D9DEE4;
+                    line-height: 1; 
+                }
+                .selected{
+                    display: none;
+                 }  
+
+                .is-select{
+                    display: inline-block;
+                    vertical-align: middle; 
+                    width: 14.18px;
+                    height: 14.18px;
+                    border-radius: 50%;  
+                    position: relative; 
+                    color: white;
+                    background-color: #FF9319;         
+                    .page-icon{
+                        position: absolute;
+                        margin: 0px 0px;
+                       font-size: 14px;
+                    }
+                } 
+            }
+            td.name{
+                display: flex;
+                align-items: center;
+                .span-distance{
+                    padding: 0px 1px 1px 10px;
+                }
+            }         
+        }
+        
+    }
+}
+
+.app-toolbar{
+    position: fixed;
+    bottom: 0px;
+    overflow: hidden;
+
+    .pagination-show{
+        height: 60px;
+        margin-left: 10px;
+        display: flex;
+        justify-content: flex-start;
+        .page-direction{
+            width: 60px;
+            height: 60px;  
+            display: flex;
+            align-items: center;  
+            justify-content: center; 
+            .page-icon{        
+                font-size: 36px;               
+            }  
+            .bright{        
+                font-size: 31.64px;
+                color: #FFFFFF;
+            }
+            .dark{           
+                color: #47494E;
+            }     
+        }    
+        .page-size-show{    
+            height: 60px;         
+            color: #FFFFFF;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 60px;
+            letter-spacing: 0px;
+            text-align: center;       
+        }
+
+        i[disabled="disabled"] {
+            pointer-events: none;//阻止JavaScript点击动作触发的事件
+        }
+    }
+
+    .showModel{
+        margin-left: 60px;      
+    }
+    .font-display{
+        width: 60px;
+        max-width: 60px;
+        padding: 5px;
+    }
+
+    #btn-export{
+        margin-left: 60px;
+    }
+}

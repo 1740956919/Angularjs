@@ -1,0 +1,14 @@
+{
+  "[version]": "1.0",
+  "name": "ClassroomTeaching.Group",
+  "server": {
+    "port": 12398,
+    "useProfile": true,
+    "useTimestamp": true
+  },
+  "include_files": [
+     "../../__public__/**/*.*",
+     "../__public__/**/*.*"
+  ],
+  "exclude_files": []
+}

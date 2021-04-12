@@ -1,0 +1,10 @@
+livestream-player .video-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%; }
+  livestream-player .video-wrapper video {
+    max-height: 100%;
+    max-width: 100%; }

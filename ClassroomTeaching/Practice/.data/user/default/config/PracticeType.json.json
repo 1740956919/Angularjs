@@ -1,0 +1,32 @@
+[
+	{
+		"Name": "单选",
+		"Code": "SINGLE_CHOICE",
+		"Url":"single_choice.html"
+	},
+	{
+		"Name": "多选",
+		"Code": "MULTIPLE_CHOICE",
+		"Url":"multiple_choice.html"
+	},
+	{
+		"Name": "填空",
+		"Code": "SUPPLY_BLANK",
+		"Url":"supply_blank.html"
+    },
+    {
+		"Name": "简答",
+		"Code": "SHORT_ANSWER",
+		"Url":"short_answer.html"
+	},
+	{
+		"Name": "拍照",
+		"Code": "PHOTOGRAPH",
+		"Url":"photo_practice.html"
+	},
+	{
+		"Name": "口语",
+		"Code": "ORAL_PRACTICE",
+		"Url":"oral_practice.html"
+    }
+]

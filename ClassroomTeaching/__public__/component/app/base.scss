@@ -1,0 +1,40 @@
+/* ---------- waiting ---------- */
+
+@keyframes lui-waiting-infinity {
+    0% {
+        stroke-dashoffset: 0px;
+    }
+    100% {
+        stroke-dashoffset: 256.58892822265625px;
+    }
+}
+
+lui-waiting {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+
+    lui-waiting-infinity {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        max-width: 100%;
+        height: 100%;
+
+        .waiting-infinity {
+            width: 45px;
+            height: 45px;
+
+            &.waiting-animation-active {
+                path {
+                    -webkit-animation: lui-waiting-infinity linear 1s infinite;
+                    animation: lui-waiting-infinity linear 1s infinite;
+                }
+            }
+        }
+    }
+}

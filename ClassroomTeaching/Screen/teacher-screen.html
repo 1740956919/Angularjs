@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Screen.TeacherScreen" param="lessonid={0}" />
+    
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/control.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/livestream-player.css" /> 
+    <link rel="stylesheet" type="text/css" href="teacher-screen.css" />
+    <!--Page style end-->
+
+    <title>屏幕广播</title>
+</head>
+<body ng-app="ClassroomTeaching.Screen.TeacherScreen" ng-controller="MainCtrl">
+    <!-- page content here -->
+    <div class="screen" ng-show="isMonitor || isProjection" ng-cloak>
+        <div class="groupScreen" ng-if="isMonitor">
+            <div ng-repeat="channel in channels"
+                class="channel"
+                ng-if = "channel.IsShow && isMonitor"
+                ng-class = "channel.ShowType.Style" >
+                <div class="content" ng-class = "channel.ShowType.Style">                
+                    <div class="channelData" ng-click="zoomScreen(channel)">
+                        <mjpeg-player class="full-screen"                          
+                            stream-src="{{channel.DataChannel}}">
+                        </mjpeg-player>                    
+                    </div>
+                    <div class="channelName" ng-if="!isFullScreen">
+                        <span>{{channel.DeviceName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="phoneScreen" ng-if="isProjection">
+            <div class="notic-info"  ng-if="!isFullScreen">
+                <h3>手机投屏须知</h3>
+                <p>1、在手机系统桌面找到设置图标，点击打开。</p>
+                <p>2、在设置页面找到设备连接选型，点击进入。</p>
+                <p>3、然后在当前页面找到多名互动选项，点击进入。</p>
+                <p>4、然后系统回自动搜索可投屏的设备，点击想要投屏的</p>
+                <p>设备，以暴风TV为例。</p>
+                <p>5、然后手机屏幕显示"您的手机已成功连接电视"，即标识</p>   
+                <p>示投屏成功。</p>            
+            </div>
+            <div class="phoneScreen-content" id = "phoneScreenInfo" ng-class="{'notShowNotice':isFullScreen }">
+                <div ng-repeat="channel in channels"
+                class="channel"
+                ng-show = "channel.IsShow"
+                ng-class = "channel.ShowType.Style">
+                <div class="content" ng-class = "channel.ShowType.Style">
+                    <div class="channelData" ng-click="zoomScreen(channel)" >
+                        <livestream-player style="height: 100%; text-align: center;"
+                            ng-show="channel.HasReceiveData"
+                            on-init="channel.OnInit"></livestream-player>
+                        <div class="show-warning" ng-if="!channel.HasReceiveData">
+                            <div class="boardImg">
+                                <i class="lic lic-smartphone"></i>
+                                <div class="message">暂无投屏</div>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="channelName" ng-if="!isFullScreen">
+                        <span>{{channel.DeviceName}}</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-toolbar" ng-if="!isLoading"  ng-cloak>                      
+        <button class="toolbar-button btn-screen" ng-click="endBrodcast()" ng-class="{ 'actived':!isBroadcast}">不投屏</button>
+        <button class="toolbar-button hilight-primary btn-screen" 
+            ng-show="groupScreens.length > 0"
+            ng-click="broadcastAll()" ng-class="{ 'actived':isBroadcastAll() }">
+            至所有小组屏
+        </button>  
+        <button class="toolbar-button hilight-primary square" 
+            ng-repeat="item in groupScreens", 
+            ng-click="broadcast(item)" ,
+            ng-class="{ 'actived':item.IsRecevice }",
+            button-text="item.DeviceName">
+        </button>   
+
+        <button class="toolbar-button btn-screen" id="endReceive" 
+            ng-class="{ 'actived':!isMonitor && !isProjection}"
+            ng-show="groupScreens.length > 0 || isProjection"
+            ng-click="endReceive()" >
+            不获取
+        </button>
+        <button class="toolbar-button hilight-primary btn-screen" 
+            ng-show="groupScreens.length > 0"
+            ng-class="{ 'actived':isMonitor }"
+            ng-click="receiveGroupScreens()" >
+            小组屏获取
+        </button> 
+        <button class="toolbar-button hilight-primary btn-screen" ng-click="receivePhoneScreens()" ng-class="{ 'actived':isProjection }">手机屏获取</button>
+
+        <button class="zoom-button"
+            ng-click="zoomScreen(selectedChannel)" 
+            ng-show="isMonitor || isProjection">
+            <i class="lic lic-expand page-icon" ng-show="!isFullScreen"></i>
+            <i class="lic lic-shrink page-icon" ng-show="isFullScreen" ng-class="{'bright':isFullScreen}"></i>
+        </button> 
+       
+
+        <div class="pagination-show" ng-show="isMonitor || isProjection" ng-cloak>
+            <div class="page-direction"> 
+                <i class="lic lic-arrow-left-circle page-icon" ng-click="changePage('previous')" ng-disabled="currentIndex == 1"
+                ng-class="{'bright':currentIndex > 1, 'dark':currentIndex == 1}"></i>
+            </div>         
+            <span class="page-size-show">{{currentIndex}}/{{pageCount}}</span>
+            <div class="page-direction">
+                <i class="lic lic-arrow-right-circle page-icon" ng-click="changePage('next')" ng-disabled="currentIndex + showType.Count > pageCount"
+                    ng-class="{'bright':currentIndex < pageCount, 'dark':currentIndex + showType.Count > pageCount}"></i>
+            </div>            
+        </div>  
+
+        <div class="screenInfo" ng-show="isFullScreen && (isMonitor || isProjection)">
+            <span>当前屏幕：{{selectedChannel.DeviceName}}</span>
+        </div>
+
+        <div class="showModel" ng-show="!isFullScreen && (isMonitor || isProjection)">
+            <button class="toolbar-button" 
+                ng-class="{'actived':item == showType}",
+                ng-show = "item.Name != ''"
+                ng-repeat="item in showTypes", 
+                ng-click="changShowModel(item)",              
+                ng-bind="item.Name">
+        </button>   
+        </div>
+
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/toolbar-button.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/livestream-player.js"></script>
+    <script src="index-service.js"></script>
+    <script src="teacher-screen.js"></script>
+    <!--Page script end-->
+</body>
+</html>

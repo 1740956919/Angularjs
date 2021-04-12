@@ -1,0 +1,35 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px; }
+  .app-toolbar .progress {
+    width: 100%;
+    height: 100%;
+    display: flex; }
+    .app-toolbar .progress .garbAnswering {
+      font-size: 14px;
+      line-height: 60px;
+      margin-left: 60px; }
+  .app-toolbar .complete {
+    width: 100%;
+    height: 100%;
+    display: flex; }
+    .app-toolbar .complete .student {
+      margin-left: 60px;
+      display: flex;
+      height: 60px; }
+      .app-toolbar .complete .student .studentPhoto {
+        width: 60px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .app-toolbar .complete .student .studentPhoto .student-small-img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%; }
+      .app-toolbar .complete .student .studentInfo {
+        width: 100px;
+        height: 100%; }
+        .app-toolbar .complete .student .studentInfo span {
+          font-size: 14px;
+          line-height: 60px; }

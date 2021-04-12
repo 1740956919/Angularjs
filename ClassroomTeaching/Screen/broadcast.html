@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Screen.Broadcast" param="lessonid={0}&channelid={1}" />
+    
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/control.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.css" />     
+    <link rel="stylesheet" type="text/css" href="broadcast.css" />
+    <!--Page style end-->
+
+    <title>接收广播</title>
+</head>
+<body ng-app="ClassroomTeaching.Screen.Broadcast" ng-controller="MainCtrl">
+    <!-- page content here -->
+    <div class="screen" ng-if="!isLoading" ng-cloak>     
+        <mjpeg-player  style="height: 100%; text-align: center;" stream-src="{{DataUrl}}">
+        </mjpeg-player>
+    </div>
+
+   
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    
+
+    <!--LINDGE:script end-->
+    <!--Page script begin-->   
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.js"></script>
+    <script src="index-service.js"></script>
+    <script src="broadcast.js"></script>
+    <!--Page script end-->
+</body>
+</html>

@@ -1,0 +1,197 @@
+/* colors */
+/* font */
+/* control layouts */
+#cover-button-width {
+  min-width: max-content;
+  padding: 19px 15px 19px 15px; }
+
+#QRCodeContainer {
+  margin-top: 53px;
+  width: 242px;
+  height: 242px; }
+
+.portal-container {
+  width: 100%;
+  height: 100%; }
+  .portal-container .top-container {
+    width: 100%;
+    height: calc(100% - 80px);
+    background: #000000; }
+    .portal-container .top-container .background-image-container {
+      position: absolute;
+      width: 100%;
+      height: 296px; }
+      .portal-container .top-container .background-image-container img {
+        width: 100%;
+        height: 100%; }
+    .portal-container .top-container .lesson-container {
+      position: absolute;
+      margin-left: 470px;
+      margin-top: 42px; }
+      .portal-container .top-container .lesson-container .lesson-info .course-name {
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+      .portal-container .top-container .lesson-container .lesson-info .lesson-name-container {
+        margin-top: 10px;
+        display: flex; }
+        .portal-container .top-container .lesson-container .lesson-info .lesson-name-container i {
+          font-size: 22px;
+          color: rgba(255, 255, 255, 0.6); }
+        .portal-container .top-container .lesson-container .lesson-info .lesson-name-container .lesson-name {
+          margin-left: 10px;
+          color: white;
+          font-family: PingFang SC;
+          font-weight: regular;
+          font-size: 16px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+      .portal-container .top-container .lesson-container .lesson-info .class-name-container {
+        margin-top: 10px;
+        display: flex; }
+        .portal-container .top-container .lesson-container .lesson-info .class-name-container i {
+          font-size: 22px;
+          color: rgba(255, 255, 255, 0.6); }
+        .portal-container .top-container .lesson-container .lesson-info .class-name-container .class-name {
+          margin-left: 10px;
+          color: white;
+          font-family: PingFang SC;
+          font-weight: regular;
+          font-size: 16px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+      .portal-container .top-container .lesson-container .teacher-info-container {
+        margin-top: 30px;
+        display: flex; }
+        .portal-container .top-container .lesson-container .teacher-info-container img {
+          width: 43px;
+          background: rgba(255, 255, 255, 0.6); }
+        .portal-container .top-container .lesson-container .teacher-info-container .teacher-info {
+          margin-left: 14.05px; }
+          .portal-container .top-container .lesson-container .teacher-info-container .teacher-info .teacher-name {
+            margin-top: 4px;
+            color: white;
+            font-family: PingFang SC;
+            font-weight: regular;
+            font-size: 13px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left; }
+          .portal-container .top-container .lesson-container .teacher-info-container .teacher-info .teacher-position {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: PingFang SC;
+            font-weight: regular;
+            font-size: 12px;
+            line-height: 17px;
+            letter-spacing: 0px;
+            text-align: left; }
+    .portal-container .top-container .linear-gradient-container {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, black 100%);
+      width: 100%;
+      height: 296px;
+      position: absolute; }
+    .portal-container .top-container .sign-container {
+      width: 656px;
+      height: 295px;
+      padding-top: 353px;
+      margin-left: 553px;
+      display: flex; }
+      .portal-container .top-container .sign-container .qrcode-container img {
+        border: 4px solid white; }
+      .portal-container .top-container .sign-container .sign-content {
+        margin-left: 60px;
+        width: 354px;
+        height: 295px; }
+        .portal-container .top-container .sign-container .sign-content .time {
+          width: 354px;
+          height: 233px;
+          color: #FFFFFF;
+          font-family: Open24DisplaySt;
+          font-weight: normal;
+          font-size: 200px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+        .portal-container .top-container .sign-container .sign-content .text {
+          margin-top: 20px;
+          height: 42px;
+          width: 432px;
+          color: #FFFFFF;
+          font-family: PingFang SC;
+          font-weight: normal;
+          font-size: 30px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left; }
+    .portal-container .top-container .wait-icon-container {
+      margin-left: 800px;
+      margin-top: 80px;
+      width: 240px;
+      height: 128px;
+      display: block; }
+      .portal-container .top-container .wait-icon-container .text {
+        margin-top: 20px;
+        color: white;
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: center; }
+      .portal-container .top-container .wait-icon-container .icon-shape {
+        font-size: 80px;
+        margin-top: 5px;
+        margin-left: 80px;
+        color: rgba(255, 255, 255, 0.6); }
+  .portal-container .app-toolbar .wait-start-container {
+    display: flex; }
+  .portal-container .app-toolbar .cover-margin {
+    margin-right: 50px; }
+  .portal-container .app-toolbar .class-over-text {
+    width: 126px;
+    height: 20px;
+    margin-top: 20px;
+    margin-left: 60px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+  .portal-container .app-toolbar .import-progress-container {
+    margin-left: 26px;
+    margin-top: 20px;
+    display: flex; }
+    .portal-container .app-toolbar .import-progress-container .text {
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: left; }
+    .portal-container .app-toolbar .import-progress-container .progress {
+      height: 2px;
+      width: 143px;
+      background: #333333;
+      margin-top: 10px;
+      margin-left: 10px; }
+      .portal-container .app-toolbar .import-progress-container .progress .active {
+        height: 2px;
+        background: #FF6F20; }
+    .portal-container .app-toolbar .import-progress-container .percentage {
+      margin-left: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: left; }

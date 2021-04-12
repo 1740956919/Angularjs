@@ -1,0 +1,225 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px; }
+
+.detail {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #000000;
+  display: flex; }
+  .detail .summary {
+    height: 100%;
+    width: 660px;
+    border-left: solid #47494E 1px;
+    border-right: solid #47494E 1px; }
+    .detail .summary .title {
+      width: 100%;
+      height: 8.6%;
+      border-bottom: solid #47494E 1px;
+      padding-top: 40px;
+      padding-left: 20px; }
+      .detail .summary .title span {
+        height: 25px;
+        width: 72px;
+        font-size: 18px;
+        color: #ffffff;
+        font-family: PingFang SC;
+        font-weight: regular;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+  .detail .fill {
+    width: 100%;
+    height: 31.4%; }
+  .detail .answer-optons-content {
+    width: 100%;
+    height: 60%; }
+    .detail .answer-optons-content .chart {
+      width: 600px;
+      height: 90%;
+      margin-left: 30px;
+      display: flex;
+      justify-content: space-evenly;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #47494E; }
+      .detail .answer-optons-content .chart .answer {
+        width: 90px;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column-reverse; }
+        .detail .answer-optons-content .chart .answer .levelColor {
+          background-color: #f86a11; }
+        .detail .answer-optons-content .chart .answer span {
+          display: inline-block;
+          text-align: center;
+          width: 30px;
+          line-height: 30px;
+          color: #ffffff;
+          font-size: 14px; }
+      .detail .answer-optons-content .chart .level {
+        width: 30px;
+        background-color: #696969;
+        cursor: pointer; }
+    .detail .answer-optons-content .answer-options {
+      width: 600px;
+      height: 10%;
+      margin-left: 30px;
+      display: flex;
+      justify-content: space-evenly; }
+      .detail .answer-optons-content .answer-options .option {
+        height: 100%;
+        width: 90px;
+        text-align: center; }
+        .detail .answer-optons-content .answer-options .option span {
+          display: inline-block;
+          line-height: 50px;
+          color: #ffffff;
+          font-size: 14px; }
+  .detail .studentInfos {
+    height: 100%;
+    width: calc(100vw - 660px);
+    overflow: auto;
+    position: relative;
+    padding-top: 40px; }
+    .detail .studentInfos .warnning {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .detail .studentInfos .warnning .adBoard {
+        width: 240px;
+        height: 128px; }
+        .detail .studentInfos .warnning .adBoard .boardImg {
+          width: 240px;
+          height: 100px;
+          text-align: center; }
+          .detail .studentInfos .warnning .adBoard .boardImg i {
+            font-size: 72.34px;
+            color: rgba(255, 255, 255, 0.6); }
+        .detail .studentInfos .warnning .adBoard .message {
+          width: 240px;
+          height: 28px;
+          font-size: 20px;
+          text-align: center;
+          color: rgba(255, 255, 255, 0.3); }
+    .detail .studentInfos .student-answer-option {
+      width: 1060px;
+      margin-left: 60px; }
+      .detail .studentInfos .student-answer-option .student-answer {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #47494E; }
+        .detail .studentInfos .student-answer-option .student-answer span {
+          display: inline-block;
+          text-align: center;
+          color: #ffffff;
+          font-size: 16px;
+          font-family: PingFang SC;
+          font-weight: regular;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          letter-spacing: 1px; }
+      .detail .studentInfos .student-answer-option .content {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
+        .detail .studentInfos .student-answer-option .content .student {
+          height: 107px;
+          width: 70px;
+          margin-top: 40px;
+          margin-right: 95px;
+          margin-bottom: 38px; }
+          .detail .studentInfos .student-answer-option .content .student .studentInfo {
+            width: 70px; }
+            .detail .studentInfos .student-answer-option .content .student .studentInfo img {
+              width: 70px;
+              height: 70px;
+              border-radius: 50%; }
+            .detail .studentInfos .student-answer-option .content .student .studentInfo span {
+              width: 70px;
+              height: 22px;
+              margin-top: 11px;
+              display: inline-block;
+              line-height: normal;
+              font-size: 8px;
+              color: #ffffff;
+              font-family: PingFang SC;
+              font-weight: regular;
+              font-size: 16px;
+              letter-spacing: 0px;
+              text-align: center; }
+        .detail .studentInfos .student-answer-option .content .last-col {
+          margin-right: 0px; }
+
+.warnning {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #000000; }
+  .warnning .title {
+    width: 100%;
+    height: 8.6%;
+    padding-top: 40px;
+    padding-left: 20px;
+    border-bottom: solid #47494E 1px; }
+    .warnning .title span {
+      height: 25px;
+      width: 72px;
+      font-size: 18px;
+      color: #ffffff;
+      font-family: PingFang SC;
+      font-weight: regular;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: left; }
+  .warnning .warnning-content {
+    width: 100%;
+    height: 91.4%;
+    display: flex;
+    justify-content: center; }
+    .warnning .warnning-content .adBoard {
+      width: 240px;
+      height: 128px;
+      margin-top: 350px; }
+      .warnning .warnning-content .adBoard .boardImg {
+        width: 240px;
+        height: 100px;
+        text-align: center; }
+        .warnning .warnning-content .adBoard .boardImg i {
+          font-size: 80px;
+          color: rgba(255, 255, 255, 0.6); }
+      .warnning .warnning-content .adBoard .message {
+        width: 240px;
+        height: 28px;
+        font-size: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.3); }
+
+.app-toolbar .progress {
+  width: 100%;
+  height: 100%;
+  display: flex; }
+  .app-toolbar .progress span {
+    font-size: 14px;
+    line-height: 60px;
+    margin-left: 60px; }
+
+.app-toolbar .complete {
+  width: 100%;
+  height: 100%;
+  display: flex; }
+  .app-toolbar .complete .replyResult {
+    margin-left: 60px;
+    display: flex;
+    height: 60px; }
+    .app-toolbar .complete .replyResult span {
+      font-size: 14px;
+      line-height: 60px; }
+    .app-toolbar .complete .replyResult span:last-child {
+      margin-left: 60px; }
+
+#briefButton {
+  margin-left: 60px; }

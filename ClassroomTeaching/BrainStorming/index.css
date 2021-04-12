@@ -1,0 +1,431 @@
+/* colors */
+/* font */
+/* control layouts */
+.brainstorming-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  background-color: #000; }
+  .brainstorming-container .brainstorming-content {
+    flex: 1 1 auto;
+    height: calc(100% - 80px); }
+    .brainstorming-container .brainstorming-content .brainstorming-board {
+      display: flex;
+      overflow: hidden;
+      height: 100%; }
+      .brainstorming-container .brainstorming-content .brainstorming-board .member-notes {
+        overflow: hidden; }
+        .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .notes-panel-header {
+          height: 85px;
+          border-bottom: 1px solid #47494E;
+          padding-left: 20px;
+          padding-top: 40px;
+          color: #FFFFFF;
+          font-family: PingFang SC;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          position: relative; }
+        .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container.focused {
+          border: 1px solid #5f95d8; }
+        .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container {
+          height: calc(100% - 85px);
+          overflow-y: auto;
+          overflow-x: hidden;
+          position: relative; }
+          .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list {
+            display: flex;
+            margin: auto;
+            padding-top: 20px; }
+            .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel:first-child {
+              margin-left: 20px; }
+            .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel {
+              margin-left: 18px;
+              width: 200px; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel:first-child {
+                margin-top: 0px; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel {
+                margin-top: 10px; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-header {
+                  min-height: 54px;
+                  color: #FFFFFF;
+                  font-family: PingFang SC;
+                  font-weight: normal;
+                  font-size: 20px;
+                  line-height: normal;
+                  letter-spacing: 0px;
+                  text-align: left;
+                  display: flex; }
+                  .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-header img {
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 10px;
+                    margin-top: 12px;
+                    border-radius: 50%; }
+                  .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-header span {
+                    display: block;
+                    margin-left: 14px;
+                    margin-top: 13px;
+                    margin-bottom: 13px;
+                    word-break: break-word;
+                    max-width: 146px; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body {
+                  padding: 0 8px 8px 8px; }
+                  .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body .note-container:first-child {
+                    margin-top: 0px; }
+                  .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body .note-container {
+                    width: 184px;
+                    margin-top: 8px;
+                    position: relative;
+                    max-height: 288px;
+                    padding: 8px; }
+                    .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body .note-container.focused::after {
+                      content: ' ';
+                      position: absolute;
+                      left: -1px;
+                      top: -1px;
+                      right: -1px;
+                      bottom: -1px;
+                      border: 1px solid #fff; }
+                    .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body .note-container .note-item {
+                      width: 100%;
+                      height: max-content;
+                      color: #333333;
+                      font-family: PingFang SC;
+                      font-weight: bold;
+                      font-size: 12px;
+                      line-height: 17px;
+                      letter-spacing: 0px;
+                      text-align: left;
+                      word-break: break-word;
+                      overflow: hidden;
+                      max-height: 272px; }
+                    .brainstorming-container .brainstorming-content .brainstorming-board .member-notes .column-panel-list-container .column-panel-list .column-panel .member-panel .panel-body .note-container .note-item.dragging {
+                      position: fixed;
+                      box-shadow: 0px 12px 36px 0px rgba(0, 0, 0, 0.81);
+                      z-index: 5;
+                      padding: 8px;
+                      width: 184px; }
+      .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .results-panel-header {
+        height: 85px;
+        border-bottom: 1px solid #47494E;
+        padding-left: 20px;
+        padding-top: 40px;
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+      .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: calc(100% - 85px); }
+        .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list {
+          display: flex;
+          padding-top: 20px;
+          height: 100%; }
+          .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel:first-child {
+            margin-left: 20px; }
+          .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel {
+            margin-left: 18px;
+            width: 200px; }
+            .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header {
+              min-height: 54px;
+              color: #FFFFFF;
+              font-family: PingFang SC;
+              font-weight: regular;
+              font-size: 20px;
+              line-height: normal;
+              letter-spacing: 0px;
+              text-align: left;
+              display: flex; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header .vote {
+                width: 30px;
+                height: 30px;
+                margin-left: 10px;
+                margin-top: 12px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                color: #000000;
+                background: #FFFFFF;
+                font-family: PingFang SC;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 17px;
+                letter-spacing: 0px;
+                text-align: left; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header .vote span {
+                  color: #FF9319;
+                  margin-top: 10.5px;
+                  display: inline-block;
+                  width: 0;
+                  height: 0;
+                  border-bottom: 6.932px solid #FF9319;
+                  border-left: 4px solid transparent;
+                  border-right: 4px solid transparent;
+                  border-top: 6.932px solid transparent;
+                  margin: 0;
+                  margin-top: 3.466px;
+                  margin-right: 1px; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header .vote div {
+                  margin-top: 6px; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header img {
+                width: 30px;
+                height: 30px;
+                margin-left: 10px;
+                margin-top: 12px; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-header span {
+                display: inline-block;
+                margin-left: 14px;
+                margin-top: 13px;
+                margin-bottom: 13px;
+                word-break: break-word;
+                max-width: 146px; }
+            .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body {
+              padding: 0 8px 8px 8px;
+              height: calc(100% - 54px);
+              overflow-y: auto;
+              overflow-x: hidden;
+              position: relative; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body.focused {
+                background-color: rgba(255, 255, 255, 0.2); }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body .note-container:first-child {
+                margin-top: 0px; }
+              .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body .note-container {
+                width: 184px;
+                margin-top: 8px;
+                max-height: 288px;
+                padding: 8px; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body .note-container .note-item {
+                  width: 100%;
+                  height: max-content;
+                  color: #333333;
+                  font-family: PingFang SC;
+                  font-weight: bold;
+                  font-size: 12px;
+                  line-height: 17px;
+                  letter-spacing: 0px;
+                  text-align: left;
+                  max-height: 288px;
+                  word-break: break-word;
+                  overflow: hidden;
+                  max-height: 272px; }
+                .brainstorming-container .brainstorming-content .brainstorming-board .discuss-results .category-panel-list-container .category-panel-list .category-panel .panel-body .note-container .note-item.dragging {
+                  position: fixed;
+                  box-shadow: 0px 12px 36px 0px rgba(0, 0, 0, 0.81);
+                  z-index: 5;
+                  padding: 8px;
+                  width: 184px; }
+    .brainstorming-container .brainstorming-content .timing-board {
+      height: 100%; }
+      .brainstorming-container .brainstorming-content .timing-board .timing-container {
+        margin-top: 353px;
+        margin-left: 743px;
+        width: 372px;
+        height: 295px; }
+        .brainstorming-container .brainstorming-content .timing-board .timing-container .brainstorm-time {
+          color: #FFFFFF;
+          font-family: Open24DisplaySt;
+          font-weight: normal;
+          font-size: 200px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          display: block; }
+        .brainstorming-container .brainstorming-content .timing-board .timing-container .text {
+          color: #FFFFFF;
+          font-family: PingFang SC;
+          font-weight: normal;
+          font-size: 30px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          display: block; }
+  .brainstorming-container .app-toolbar .cover-button-margin {
+    margin-right: 60px; }
+  .brainstorming-container .app-toolbar .brainstorming-time {
+    margin-left: 60px;
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left; }
+
+.note-item {
+  width: 184px;
+  line-height: 17px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  height: fit-content;
+  background-color: #fff; }
+  .note-item .note-wrapper {
+    width: 100%;
+    height: max-content;
+    max-height: 118px;
+    word-break: break-word;
+    overflow: hidden; }
+
+.note-preview .note-item {
+  padding: 8px; }
+
+.backdrop {
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(30px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10; }
+
+.remove-btn {
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1; }
+  .remove-btn:before {
+    content: ' ';
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    display: block;
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    z-index: -1;
+    border-radius: 50%; }
+
+.note-previewer {
+  position: relative;
+  margin: auto;
+  width: 683px;
+  height: 683px;
+  line-height: 42px;
+  font-size: 36px;
+  color: #333;
+  word-break: break-word; }
+  .note-previewer .note-content {
+    overflow: auto;
+    padding: 20px 32px 30px 32px;
+    max-width: 100%;
+    max-height: calc(100% - 60px); }
+  .note-previewer .note-toolbar {
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.25); }
+    .note-previewer .note-toolbar button {
+      float: right;
+      margin-left: 10px;
+      height: 60px;
+      width: 60px;
+      min-width: 60px;
+      background-color: transparent;
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+      cursor: pointer; }
+      .note-previewer .note-toolbar button i {
+        color: #fff;
+        font-size: 32px; }
+      .note-previewer .note-toolbar button:actived, .note-previewer .note-toolbar button:focused {
+        background-color: transparent; }
+
+.category-creator {
+  margin: auto;
+  width: 598px; }
+  .category-creator .title-input {
+    position: relative;
+    padding: 18px;
+    height: 105px;
+    border-radius: 9px;
+    background-color: rgba(51, 51, 51, 0.7); }
+    .category-creator .title-input input {
+      display: block;
+      padding: 0 60px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      font-size: 50px;
+      color: #fff;
+      background-color: transparent; }
+    .category-creator .title-input .remove-btn {
+      position: absolute;
+      right: 28px;
+      top: 35px; }
+      .category-creator .title-input .remove-btn i {
+        color: #47494e;
+        font-size: 40px; }
+  .category-creator .note-preview {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 52px;
+    padding: 62px 70px;
+    height: 241px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.3); }
+    .category-creator .note-preview .note-item + .note-item {
+      margin-left: 90px; }
+
+.toolbar-control {
+  display: flex;
+  flex-direction: row; }
+  .toolbar-control .voting-states {
+    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
+    width: 0px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #fff;
+    transition: width 0.2s ease; }
+    .toolbar-control .voting-states .vote-time,
+    .toolbar-control .voting-states .vote-count {
+      padding-left: 60px; }
+    .toolbar-control .voting-states .states-wrapper {
+      position: absolute;
+      opacity: 0;
+      left: -400px;
+      transition: left 0.2s ease, opacity 0.1s linear; }
+  .toolbar-control.actived .voting-states {
+    width: 600px; }
+    .toolbar-control.actived .voting-states .states-wrapper {
+      left: 0;
+      opacity: 1; }
+
+.note-collection-wrapper {
+  position: relative; }
+
+.note-new-container {
+  width: 184px;
+  padding: 8px;
+  position: fixed;
+  box-shadow: 0px 12px 36px 0px rgba(0, 0, 0, 0.81);
+  z-index: 5; }
+  .note-new-container .note-new-item {
+    width: 100%;
+    height: max-content;
+    color: #333333;
+    font-family: PingFang SC;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    max-height: 288px;
+    word-break: break-word;
+    overflow: hidden;
+    max-height: 272px; }

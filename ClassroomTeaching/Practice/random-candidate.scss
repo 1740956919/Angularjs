@@ -1,0 +1,73 @@
+.app-toolbar{
+    position: absolute;
+    bottom: 0px;
+    .progress{
+        width: 100%;
+        height: 100%;    
+        display: flex;
+        .student{
+            margin-left: 60px;
+            height: 60px;
+            display: flex;
+            .studentPhoto{
+                width: 60px;
+                height: 100%;   
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                .student-small-img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+            .studentInfo{
+                width: 100px;
+                height: 100%; 
+                span{
+                    font-size: 14px;
+                    line-height: 60px;
+                }
+            }
+        }
+        span{
+            font-size: 14px;
+            line-height: 60px;
+        }
+    }
+    .complete{
+        width: 100%;
+        height: 100%;  
+        display: flex;  
+        .student{
+            margin-left: 60px;
+            height: 60px;
+            display: flex;
+            .studentPhoto{
+                width: 60px;
+                height: 100%;   
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                .student-small-img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+            .studentInfo {
+                width: 100px;
+                height: 100%; 
+                span{
+                    font-size: 14px;
+                    line-height: 60px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+

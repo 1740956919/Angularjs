@@ -1,0 +1,56 @@
+[
+    {
+        "Id":"channelId001",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生1"
+    },
+    {
+        "Id":"channelId002",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生2"
+    },
+    {
+        "Id":"channelId003",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生3"
+    },
+    {
+        "Id":"channelId004",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生4"
+    },
+    {
+        "Id":"channelId005",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生5"
+    },
+    {
+        "Id":"channelId006",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生6"
+    },
+    {
+        "Id":"channelId007",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生7"
+    },
+    {
+        "Id":"channelId008",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生8"
+    },
+    {
+        "Id":"channelId009",
+       
+        "HasReceiveData":false,
+        "DeviceName":"学生9"
+    }
+]

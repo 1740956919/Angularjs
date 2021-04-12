@@ -1,0 +1,115 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px; }
+  .app-toolbar .group-text {
+    margin-left: 60px;
+    margin-right: 60px; }
+    .app-toolbar .group-text span {
+      line-height: 60px;
+      font-size: 14px; }
+  .app-toolbar .zoom-button {
+    width: 60px;
+    height: 60px;
+    margin-left: 60px;
+    background-color: #000000; }
+    .app-toolbar .zoom-button .page-icon {
+      margin: 12px;
+      color: #ffffff;
+      font-size: 36px; }
+    .app-toolbar .zoom-button .bright {
+      background: linear-gradient(135deg, #f86a11 0%, #feb543 100%); }
+  .app-toolbar .pagination-show {
+    display: flex;
+    justify-content: flex-start; }
+    .app-toolbar .pagination-show .page-direction {
+      width: 60px;
+      height: 60px; }
+      .app-toolbar .pagination-show .page-direction .page-icon {
+        margin: 12px; }
+      .app-toolbar .pagination-show .page-direction .nav-btn-bright {
+        font-size: 36px;
+        color: #FFFFFF; }
+      .app-toolbar .pagination-show .page-direction .nav-btn-dark {
+        font-size: 36px;
+        color: #47494E; }
+    .app-toolbar .pagination-show .page-size-show {
+      width: 24px;
+      margin-top: 20px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0px;
+      text-align: center; }
+    .app-toolbar .pagination-show i[disabled="disabled"] {
+      pointer-events: none; }
+  .app-toolbar .displayMode {
+    margin-left: 50px; }
+  .app-toolbar .paly-mode {
+    margin-left: 60px; }
+  .app-toolbar .palyer-module {
+    margin-left: 60px;
+    width: 200px;
+    height: 60px; }
+
+.screen {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #000000; }
+  .screen .screen-mode {
+    display: inline-block;
+    box-sizing: border-box; }
+    .screen .screen-mode .screen-data .screen-urlData {
+      height: calc(100% - 60px);
+      padding-top: 30px; }
+    .screen .screen-mode .screen-data .screen-nameData {
+      padding-left: 15px;
+      height: 60px;
+      color: #999999; }
+      .screen .screen-mode .screen-data .screen-nameData span {
+        height: 22px;
+        line-height: 60px;
+        padding-bottom: 19px; }
+    .screen .screen-mode .dataOne {
+      margin-left: 10%;
+      margin-right: 10%;
+      height: 100%;
+      width: 80%; }
+    .screen .screen-mode .dataTwo {
+      width: 100%;
+      height: 84%;
+      margin-top: 6%; }
+    .screen .screen-mode .dataThree {
+      width: 100%;
+      height: 100%; }
+  .screen .modeOne {
+    width: 50%;
+    height: 50%; }
+  .screen .modeTwo {
+    width: 33.3%;
+    height: 50%; }
+  .screen .modeThree {
+    width: 25%;
+    height: 33.3%; }
+  .screen .warning {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .screen .warning .adBoard {
+      width: 240px;
+      height: 128px; }
+      .screen .warning .adBoard .boardImg {
+        width: 240px;
+        height: 100px;
+        text-align: center; }
+        .screen .warning .adBoard .boardImg i {
+          font-size: 80px;
+          color: rgba(255, 255, 255, 0.6); }
+      .screen .warning .adBoard .message {
+        width: 240px;
+        height: 28px;
+        font-size: 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.3); }

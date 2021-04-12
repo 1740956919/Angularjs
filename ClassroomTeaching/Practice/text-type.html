@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Practice.Text" param="lessonId={0}&practiceId={1}&type={3}" />
+
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/audio-player.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/touch-image-viewer.css" /> 
+    <link rel="stylesheet" type="text/css" href="text-type.css" />
+    <!--Page style end-->
+
+    <title>随堂练习</title>
+</head>
+
+<body ng-app="ClassroomTeaching.Practice.TextType" ng-controller="TextTypeCtrl">
+    <!-- page content here -->
+
+    <div class="detail" ng-show="!isLoading && evaluationStyle == 'SHOW_DETAIL'" ng-cloak>
+        <div class="answer" ng-show="studentInfos.length > 0">
+            <div class="title">
+                <span>互动详情</span>
+            </div>
+            <div class="answerList" ng-show="studentInfos.length > 0">
+                <div id="fillAnswer"></div>
+                <div class="answerContents">
+                    <div class="answerContent" 
+                        ng-if="taskType == 'SHORT_ANSWER'"
+                        ng-repeat="info in studentInfos"
+                        ng-click="filterStudent(info)"
+                        ng-disabled="isExistMutualEvaluative"                        
+                        ng-class="{'answerColor': info.StudentId == selectStudent.StudentId}">
+                        <span ng-bind="info.Answer"> </span>
+                    </div>
+                    <div class="answerImage" 
+                        ng-if="taskType == 'PHOTO'" 
+                        ng-repeat="info in studentInfos"
+                        ng-disabled="isExistMutualEvaluative"                        
+                        ng-click="filterStudent(info)">
+                        <div ng-style="{'background-image': generateImageUrl(info.Answer)}" ng-class="{'unSelected':info.StudentId != selectStudent.StudentId}"></div>/>
+                    </div>
+                    <div class="answerAudio" 
+                        ng-if="taskType == 'RECORD' || taskType == 'ORAL'"
+                        ng-repeat="info in studentInfos"
+                        ng-disabled="isExistMutualEvaluative"
+                        ng-class="{'answerColor': info.StudentId == selectStudent.StudentId}"
+                        ng-click="filterStudent(info)">
+                        <div class="studentInfo">
+                            <img class="student-small-img" ng-src="{{info.Photo|platformImage:'avatar.thumbnail' }}" />
+                            <span>{{info.Name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="student" ng-show="studentInfos.length > 0">
+            <div class="studentInfo" ng-show="selectStudent.StudentId != ''">
+                <div class="studentPhoto">
+                    <img ng-src="{{selectStudent.Photo|platformImage:'avatar.thumbnail'}}" />
+                </div>
+                <div class="studentName">
+                    <span>{{selectStudent.Name}}</span>
+                </div>
+            </div>
+            <div class="content" ng-show = "selectStudent.StudentId != ''">
+                <textarea ng-if="taskType == 'FILL_BLANK' || taskType == 'SHORT_ANSWER'">{{selectStudent.Answer}}</textarea>
+                <div class="comtent-image" ng-if="taskType == 'PHOTO' && selectStudent.StudentId != ''">
+                    <touch-image-viewer 
+                        style="width: 100%; height: 100%;"
+                        on-init="onImageInit"
+                        image-src="{{selectStudent.Answer|fastUploadStreamFilter}}">
+                    </touch-image-viewer>
+                </div>               
+                <div class="audio-content" ng-show="taskType == 'RECORD' || taskType == 'ORAL'">
+                    <div class="muice-inco">
+                        <i class="lic lic-music"></i>
+                    </div>
+                    <div class="player">
+                        <div class="audio-player">
+                            <lui-audio-player on-init="onAudioInit"></lui-audio-player>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="person-warnning" ng-if="selectStudent.StudentId == ''">
+                <div class="adBoard" >
+                    <div class="boardImg">
+                        <i class="lic lic-male-circle"></i>
+                    </div>
+                    <div class="message">暂无学员</div>
+                </div>
+            </div> 
+        </div>      
+        <div class="warnning" ng-if="!loadData && studentInfos.length == 0 && evaluationStyle == 'SHOW_DETAIL'" ng-clock>
+            <div class="title"><span>互动详情</span></div>       
+            <div class="warnning-content">
+                <div class="adBoard" >          
+                    <div class="boardImg"><i class="lic lic-palm"></i></div>
+                    <div class="message">暂无答题</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-toolbar" ng-cloak>
+        <div class="progress" ng-if="state == 'PRACTICING'">
+            <button class="toolbar-button" ng-click='stopPractice()'>停止</button>
+            <span>时长：{{timeData}}</span>
+            <span>回答人数：{{parcticeInfo.ReplyCount}}/{{parcticeInfo.TotalCount}}</span>
+            <span>等待回答：{{parcticeInfo.WaitAnswerStudents}}</span>
+        </div>
+
+        <div class="complete" ng-if="state == 'PRACTICE_COMPLETE'">
+            <button class="toolbar-button square" ng-click="endPractice()">结束<br />互动</button>
+            <button class="toolbar-button hilight-primary" ng-click="appraiseStudent()" ng-show="evaluationStyle == 'SHOW_DETAIL' && selectStudent.StudentId != ''">评价</button>
+            <mutual-score-view 
+                class="mutual-score"
+                ng-show="evaluationStyle == 'SHOW_DETAIL' && (isExistMutualEvaluative || selectStudent.StudentId != '')"     
+                on-error="showErrorMessage($error)" 
+                target="scoredTarget" 
+                on-begin="startMutualScore($state)" 
+                on-end="stopMutualScore($state)">
+            </mutual-score-view>  
+            <button class="toolbar-button" 
+                style="margin-left: 60px;"
+                ng-click = "showDetail()"
+                ng-show= "evaluationStyle == 'HIDE_DETAIL'">               
+                详情              
+            </button>   
+            <button class="toolbar-button hilight-primary square" 
+                style="margin-left: 60px;"
+                ng-click = "showDetail()"
+                ng-show= "evaluationStyle == 'SHOW_DETAIL' && !isExistMutualEvaluative"
+                ng-class="{'actived':evaluationStyle == 'SHOW_DETAIL'}">
+                隐藏<br />详情
+            </button>   
+
+            <div class="replyResult" ng-show="!isExistMutualEvaluative ">
+                <span>时长：{{timeData}}</span>
+                <span>回答人数：{{parcticeInfo.ReplyCount}}/{{parcticeInfo.TotalCount}}</span>
+            </div>
+
+            <div class="image-set-inco" 
+                ng-show="taskType == 'PHOTO' && selectStudent.StudentId != '' && !isExistMutualEvaluative && evaluationStyle == 'SHOW_DETAIL'">
+                <button class="toolbar-button">
+                    <i class="lic lic-rotate-left page-icon" ng-click="rotateLeft()"></i>
+                </button>
+                <button class="toolbar-button" >
+                    <i class="lic lic-zoom-in page-icon" ng-click="zoomIn()"></i>
+                </button>
+                <button class="toolbar-button" >
+                    <i class="lic lic-zoom-out page-icon" ng-click="zoomOut()"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.WebMedia/LINDGE-WebMedia-3.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.js"></script>  
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/audio-player.js"></script>  
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/touch-image-viewer.js"></script>     
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/error-service.js"></script> 
+       
+    <script src="index-service.js"></script>
+    <script src="index-service.js"></script>
+    <script src="text-type.js"></script>
+
+    <!--Page script end-->
+</body>
+
+</html>

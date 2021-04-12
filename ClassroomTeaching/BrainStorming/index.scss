@@ -1,0 +1,534 @@
+@import '../../__public__/style/app/variable.scss';
+
+$note-size: 110px;
+$note-margin: 10px;
+
+.brainstorming-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+    background-color: $app-bg-default;
+    .brainstorming-content{
+        flex: 1 1 auto;
+        height: calc(100% - 80px);
+        .brainstorming-board {
+            display: flex;
+            overflow: hidden;
+            height: 100%;
+
+            .member-notes{
+                overflow: hidden;
+                .notes-panel-header{
+                    height: 85px;
+                    border-bottom: 1px solid #47494E;
+                    padding-left: 20px;
+                    padding-top: 40px;
+                    color: #FFFFFF;
+                    font-family: PingFang SC;
+                    font-weight: normal ;
+                    font-size: 18px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    position: relative;
+                }
+                .column-panel-list-container.focused {
+                    border: 1px solid #5f95d8;
+                }
+                .column-panel-list-container{
+                    height: calc(100% - 85px);
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    position: relative;
+                    .column-panel-list{
+                        display: flex;
+                        margin: auto;
+                        padding-top: 20px;
+                        .column-panel:first-child{
+                            margin-left: 20px;
+                        }
+                        .column-panel{
+                            margin-left: 18px;
+                            width: 200px;
+                            .member-panel:first-child{
+                                margin-top: 0px;
+                            }
+                            .member-panel{
+                                margin-top: 10px;
+                                .panel-header{
+                                    min-height: 54px;
+                                    color: #FFFFFF;
+                                    font-family: PingFang SC;
+                                    font-weight: normal;
+                                    font-size: 20px;
+                                    line-height: normal;
+                                    letter-spacing: 0px;
+                                    text-align: left;
+                                    display: flex;
+                                    img{
+                                        width: 30px;
+                                        height: 30px;
+                                        margin-left: 10px;
+                                        margin-top: 12px;
+                                        border-radius: 50%;
+                                    }
+                                    span{
+                                        display: block;
+                                        margin-left: 14px;
+                                        margin-top: 13px;
+                                        margin-bottom: 13px;
+                                        word-break: break-word;
+                                        max-width: 146px;
+                                    }
+                                }
+                                .panel-body{
+                                    padding: 0 8px 8px 8px;
+                                    .note-container:first-child{
+                                        margin-top: 0px;
+                                    }
+                                    .note-container{
+                                        width: 184px;
+                                        margin-top: 8px;
+                                        position: relative;
+                                        &.focused{
+                                            &::after {
+                                                content: ' ';
+                                                position: absolute;
+                                                left: -1px;
+                                                top: -1px;
+                                                right: -1px;
+                                                bottom: -1px;
+                                                border: 1px solid #fff;
+                                            }
+                                        }
+                                        max-height: 288px;
+                                        padding: 8px;
+                                        .note-item{
+                                            width: 100%;
+                                            height: max-content;
+                                            color: #333333;
+                                            font-family: PingFang SC;
+                                            font-weight: bold;
+                                            font-size: 12px;
+                                            line-height: 17px;
+                                            letter-spacing: 0px;
+                                            text-align: left;
+                                            word-break: break-word;
+                                            overflow: hidden;
+                                            max-height: 272px;
+                                        }
+                                        .note-item.dragging{
+                                            position: fixed;
+                                            box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.81);
+                                            z-index: 5;
+                                            padding: 8px;
+                                            width: 184px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .discuss-results{
+                .results-panel-header{
+                    height: 85px;
+                    border-bottom: 1px solid #47494E;
+                    padding-left: 20px;
+                    padding-top: 40px;
+                    color: #FFFFFF;
+                    font-family: PingFang SC;
+                    font-weight: normal ;
+                    font-size: 18px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+                .category-panel-list-container{
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    height: calc(100% - 85px);
+                    .category-panel-list{
+                        display: flex;
+                        padding-top: 20px;
+                        height: 100%;
+                        .category-panel:first-child{
+                            margin-left: 20px;
+                        }
+                        .category-panel{
+                            margin-left: 18px;
+                            width: 200px;
+                            .panel-header{
+                                min-height: 54px;
+                                color: #FFFFFF;
+                                font-family: PingFang SC;
+                                font-weight: regular;
+                                font-size: 20px;
+                                line-height: normal;
+                                letter-spacing: 0px;
+                                text-align: left;
+                                display: flex;
+                                .vote{
+                                    width: 30px;
+                                    height: 30px;
+                                    margin-left: 10px;
+                                    margin-top: 12px;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    justify-content: center;
+                                    color: #000000;
+                                    background: #FFFFFF;
+                                    font-family: PingFang SC;
+                                    font-weight: bold;
+                                    font-size: 12px;
+                                    line-height: 17px;
+                                    letter-spacing: 0px;
+                                    text-align: left;
+                                    span{
+                                        color: #FF9319;
+                                        margin-top: 10.5px;
+                                        display: inline-block;
+                                        width: 0;
+                                        height: 0;
+                                        border-bottom: 6.932px solid #FF9319;
+                                        border-left: 4px solid transparent;
+                                        border-right: 4px solid transparent;
+                                        border-top: 6.932px solid transparent;
+                                        margin: 0;
+                                        margin-top: 3.466px;
+                                        margin-right: 1px;
+                                    }
+                                    div{
+                                        margin-top: 6px;
+                                    }
+                                }
+                                img{
+                                    width: 30px;
+                                    height: 30px;
+                                    margin-left: 10px;
+                                    margin-top: 12px;
+                                }
+                                span{
+                                    display: inline-block;
+                                    margin-left: 14px;
+                                    margin-top: 13px;
+                                    margin-bottom: 13px;
+                                    word-break: break-word;
+                                    max-width: 146px;
+                                }
+                            }
+                            .panel-body{
+                                padding: 0 8px 8px 8px;
+                                height: calc(100% - 54px);
+                                overflow-y: auto;
+                                overflow-x: hidden;
+                                position: relative;
+                                &.focused {
+                                    background-color: rgba(#fff, 0.2);
+                                }
+                                .note-container:first-child{
+                                    margin-top: 0px;
+                                }
+                                .note-container{
+                                    width: 184px;
+                                    margin-top: 8px;
+                                    max-height: 288px;
+                                    padding: 8px;
+                                    .note-item{
+                                        width: 100%;
+                                        height: max-content;
+                                        color: #333333;
+                                        font-family: PingFang SC;
+                                        font-weight: bold;
+                                        font-size: 12px;
+                                        line-height: 17px;
+                                        letter-spacing: 0px;
+                                        text-align: left;
+                                        max-height: 288px;
+                                        word-break: break-word;
+                                        overflow: hidden;
+                                        max-height: 272px;
+                                    }
+                                    .note-item.dragging{
+                                        position: fixed;
+                                        box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.81);
+                                        z-index: 5;
+                                        padding: 8px;
+                                        width: 184px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .timing-board{
+            height: 100%;
+            .timing-container{
+                margin-top: 353px;
+                margin-left: 743px;
+                width: 372px;
+                height: 295px;
+                .brainstorm-time{
+                    color: #FFFFFF;
+                    font-family: Open24DisplaySt;
+                    font-weight: normal;
+                    font-size: 200px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    display: block;
+                }
+                .text{
+                    color: #FFFFFF;
+                    font-family: PingFang SC;
+                    font-weight: normal;
+                    font-size: 30px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    display: block;
+                }
+            }
+        }
+    }
+    .app-toolbar{
+        .cover-button-margin{
+            margin-right: 60px;
+        }
+        .brainstorming-time{
+            margin-left: 60px;
+            margin-top: 20px;
+            color: #FFFFFF;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+    }
+}
+
+.note-item {
+    width: 184px;
+    line-height: 17px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $text-color-invert;
+    height: fit-content;
+    background-color: $app-bg-invert;
+
+    .note-wrapper {
+        width: 100%;
+        height: max-content;
+        max-height: 118px;
+        word-break: break-word;
+        overflow: hidden;
+    }
+}
+.note-preview .note-item {
+    padding: 8px;
+}
+
+.backdrop {
+    overflow: hidden;
+    position: fixed;
+    display: flex;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(#000, 0.5);
+    backdrop-filter: blur(30px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.remove-btn {
+    outline: 0;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+
+    &:before {
+        content: ' ';
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        display: block;
+        width: 50%;
+        height: 50%;
+        background-color: #fff;
+        z-index: -1;
+        border-radius: 50%;
+    }
+}
+
+.note-previewer {
+    $toolbar-height: 60px;
+
+    position: relative;
+    margin: auto;
+    width: 683px;
+    height: 683px;
+    line-height: 42px;
+    font-size: 36px;
+    color: $text-color-invert;
+    word-break: break-word;
+
+    .note-content {
+        overflow: auto;
+        padding: 20px 32px 30px 32px;
+        max-width: 100%;
+        max-height: calc(100% - #{$toolbar-height});
+    }
+
+    .note-toolbar {
+        height: $toolbar-height;
+        background-color: rgba(#000, 0.25);
+
+        button {
+            float: right;
+            margin-left: 10px;
+            height: $toolbar-height;
+            width: $toolbar-height;
+            min-width: $toolbar-height;
+            background-color: transparent;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+            cursor: pointer;
+
+            i {
+                color: $text-color-base;
+                font-size: 32px;
+            }
+
+            &:actived,
+            &:focused {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+.category-creator {
+    margin: auto;
+    width: 598px;
+
+    .title-input {
+        position: relative;
+        padding: 18px;
+        height: 105px;
+        border-radius: 9px;
+        background-color: rgba(51,51,51,0.7);
+
+        input {
+            display: block;
+            padding: 0 60px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 50px;
+            color: $text-color-base;
+            background-color: transparent;
+        }
+
+        .remove-btn {
+            position: absolute;
+            right: 28px;
+            top: 35px;
+
+            i {
+                color: #47494e;
+                font-size: 40px;
+            }
+        }
+    }
+
+    .note-preview {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 52px;
+        padding: 62px 70px;
+        height: 241px;
+        border-radius: 18px;
+        background-color: rgba($app-bg-invert, 0.3);
+
+        .note-item + .note-item {
+            margin-left: 90px;
+        }
+    }
+}
+
+.toolbar-control {
+    display: flex;
+    flex-direction: row;
+
+    .voting-states {
+        overflow: hidden;
+        position: relative;
+        margin: 20px 0;
+        width: 0px;
+        line-height: 20px;
+        font-size: $text-size-control;
+        font-weight: bold;
+        white-space: nowrap;
+        color: $text-color-base;
+        transition: width 0.2s ease;
+
+        .vote-time,
+        .vote-count {
+            padding-left: 60px;
+        }
+
+        .states-wrapper {
+            position: absolute;
+            opacity: 0;
+            left: -400px;
+            transition: left 0.2s ease, opacity 0.1s linear;
+        }
+    }
+
+    &.actived {
+        .voting-states {
+            width: 600px;
+
+            .states-wrapper {
+                left: 0;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.note-collection-wrapper {
+    position: relative;
+}
+
+.note-new-container{
+    width: 184px;
+    padding: 8px;
+    position: fixed;
+    box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.81);
+    z-index: 5;
+    .note-new-item{
+        width: 100%;
+        height: max-content;
+        color: #333333;
+        font-family: PingFang SC;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0px;
+        text-align: left;
+        max-height: 288px;
+        word-break: break-word;
+        overflow: hidden;
+        max-height: 272px;
+    }
+}

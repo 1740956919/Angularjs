@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.MaterialContent" param="resourceid={0}&token={1}" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/CourseWare/LINDGE-CW-3.6.0.min.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" type="text/css" href="material-content.css" />
+    <!--Page style end-->
+
+    <title>查看资料</title>
+</head>
+<body ng-app="ClassroomTeaching.MaterialContent" ng-controller="MaterialContentCtrl">
+    <!-- page content here -->
+    <div class="content-view-body" ng-cloak>
+        <div class="material-container" ng-show="!isLoadingMaterial">
+            <div id="document-view" class="docunent-container">
+                <lcw-document-viewer class="document-preview-mode" document-id="{{viewBehaviorId}}"
+                    presentation-style="preview"></lcw-document-viewer>
+            </div>
+        </div>
+        <div class="error-state" ng-if="requestFail">
+            <lui-promo>
+                <div class="promo-badge">
+                    <lui-icon icon="list-page"></lui-icon>
+                </div>
+                <div class="promo-message">
+                    <div class="promo-text">加载资料内容失败，请稍候重试</div>
+                </div>
+            </lui-promo>
+        </div>
+        <lui-float-toolbar class="layout-row" layout-modify="true" ng-show="showAudioPlayer">
+            <lui-audio-player ng-show="showAudioPlayer" on-init="onAudioPlayerInit" style="margin-left: 370px;"></lui-audio-player>
+            <span class="flex-auto"></span>
+        </lui-float-toolbar>
+    </div>     
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.WebMedia/LINDGE-WebMedia-3.0.0.js"></script>
+    <script include-type="global" src="/Framework/CourseWare/LINDGE-CW-3.6.0.js"></script>
+    <script include-type="global" src="/Framework/CourseWare/Runtime/LINDGE-CW-Runtime.Local-3.6.0.js"></script>
+    <script src="/SystemConfig.js"></script>
+
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    
+    <script src="material-content.js"></script>
+    <script src="index-service.js"></script>
+    <!--Page script end-->
+</body>
+</html>

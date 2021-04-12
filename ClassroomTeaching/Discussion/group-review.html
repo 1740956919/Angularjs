@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Discussion.Review" param="lessonid={0}&relationid={1}" />
+    
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/control.css" />  
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.css" /> 
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.css" />  
+    <link rel="stylesheet" type="text/css" href="group-review.css" />
+    <!--Page style end-->
+
+    <title>分组讨论进行中</title>
+</head>
+
+<body ng-app="ClassroomTeaching.Discussion.Review" ng-controller="ReviewCtrl">
+    <!-- page content here -->
+    
+    <div class="screen" ng-cloak>
+        <div ng-repeat="group in groups"
+            class="screen-mode"
+            ng-if = "group.IsShow && !isReviewScreen"
+            ng-class = "{ 'modeOne':group.Style==1, 'modeTwo':group.Style==2, 'modeThree':group.Style==3}" >
+            <div class="screen-data" 
+                ng-class = "{ 'dataOne':group.Style==1, 'dataTwo':group.Style==2, 'dataThree':group.Style==3}">
+                <div class="screen-urlData" ng-click="zoomScreen(group)">
+                    <mjpeg-player style="height: 100%; text-align: center;"                                        
+                        stream-src="{{group.ChannelUrl}}">
+                    </mjpeg-player>                  
+                </div>
+                <div class="screen-nameData">
+                    <span>{{group.GroupName}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="full-screen" ng-if ="isReviewScreen">
+            <mjpeg-player style="height: 100%; text-align: center;"                                        
+                stream-src="{{selectedScreen.ChannelUrl}}">
+            </mjpeg-player>       
+        </div> -->
+        <div class="warning" ng-if="!isLoading && groups.length == 0 ">
+            <div class="adBoard">
+                <div class="boardImg">
+                    <i class="lic lic-monitor"></i>
+                </div>
+                <div class="message">暂无数据</div>
+            </div>
+        </div>
+        
+    </div>
+  
+    <div class="app-toolbar" ng-show="!isLoading" ng-cloak>
+        <button id="btn-end" class="toolbar-button square" ng-click="endDiscuss()">结束<br />讨论</button>
+        <button class="toolbar-button hilight-primary" ng-show="isReviewScreen && groups.length != 0" ng-click = "appraiseStudent()" >评价</button>   
+        <mutual-score-view 
+        ng-show="isReviewScreen && groups.length != 0"            
+            target="scoredTarget" 
+            on-begin="startMutualScore($state)" 
+            on-end="stopMutualScore($state)"
+            on-error="showErrorMessage($error)">
+        </mutual-score-view> 
+
+        <button class="zoom-button"
+            ng-click="zoomScreen(selectedScreen)" 
+            ng-show="!isExistMutualEvaluative && groups.length != 0">
+            <i class="lic lic-expand page-icon" ng-show="!isReviewScreen"></i>
+            <i class="lic lic-shrink page-icon" ng-show="isReviewScreen" ng-class="{'bright':isReviewScreen}"></i>
+        </button> 
+
+        <div class="pagination-show" ng-show="!isExistMutualEvaluative && groups.length != 0">
+            <div class="page-direction"> 
+                <i class="lic lic-arrow-left-circle page-icon" 
+                    ng-click="changePage('previous')" 
+                    ng-disabled="selectedScreen.Index == 1"
+                    ng-class="{'nav-btn-bright':selectedScreen.Index > 1, 'nav-btn-dark':selectedScreen.Index == 1}">
+                </i>
+            </div>
+            <span class="page-size-show">{{selectedScreen.Index}}/{{groups.length}}</span>
+            <div class="page-direction"> 
+                <i class="lic lic-arrow-right-circle page-icon"
+                    ng-click="changePage('next')" 
+                    ng-disabled="selectedScreen.Index + (isReviewScreen ? 1:displayMode.Count) > groups.length "
+                    ng-class="{'nav-btn-bright':selectedScreen.Index < groups.length, 
+                            'nav-btn-dark':selectedScreen.Index + (isReviewScreen ? 1:displayMode.Count) > groups.length}">
+                </i>
+            </div>
+        </div>   
+        
+        <div class="displayMode" ng-show="!isReviewScreen && !isExistMutualEvaluative && groups.length != 0">
+            <button class="toolbar-button"                       
+                ng-repeat="item in displayModes", 
+                ng-click="changArrangeModel(item)",    
+                ng-class="{'actived':item.Style == displayMode.Style}",            
+                ng-bind="item.Name">
+            </button> 
+        </div>  
+
+        <!-- <div class="paly-mode" ng-show="isReviewScreen && !isExistMutualEvaluative && groups.length != 0">
+            <button id="toolbar-button" class="toolbar-button square" ng-click="changePlayMode('Channel')" 
+                ng-class="{'actived':playType == 'Channel'}">当前屏幕</button>
+            <button id="btn-end" class="toolbar-button" ng-click="changePlayMode('ScreenRecord')" 
+                ng-class="{'mode-active':playType == 'ScreenRecord'}">录屏</button>
+            <button id="btn-end" class="toolbar-button" ng-click="changePlayMode('Broadcast')" 
+                ng-class="{'mode-active':playType == 'Broadcast'}">录播</button>
+        </div>    -->
+
+        
+        
+        <div class="group-text" ng-show="isReviewScreen && !isExistMutualEvaluative && groups.length != 0" ng-cloak>
+            <span>当前屏幕：{{selectedScreen.GroupName}}</span>
+        </div>
+        
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>  
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mjpeg-player.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script> 
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/error-service.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.js"></script> 
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/toolbar-button.js"></script> 
+    <script src="index-service.js"></script>
+    <script src="group-review.js"></script>
+    <!--Page script end-->
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+#cover-button-width {
+    min-width: max-content;
+    padding: 19px 15px 19px 15px;
+}
+
+.app-toolbar{
+    overflow-y: hidden;
+    .side-bar-location{
+        margin-right: 60px;
+    }
+}
+
+.hover-cursor{
+    cursor: pointer;
+}

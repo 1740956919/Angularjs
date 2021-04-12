@@ -1,0 +1,15 @@
+{
+  "[version]": "1.0",
+  "name": "ClassroomTeaching.BrainStorming",
+  "server": {
+    "port": 11421,
+    "https": false,
+    "useProfile": true,
+    "useTimestamp": true
+  },
+  "include_files": [
+    "../../__public__/**/*.*",
+    "../__public__/**/*.*"
+  ],
+  "exclude_files": []
+}

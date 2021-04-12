@@ -1,0 +1,20 @@
+[
+    {
+        "name":"default",
+        "user":"",
+        "url":"/index.html?sceneid=scene_fae67ca5972346abaa67383344eb8e80"
+    },
+
+    {
+        "name":"brief",
+        "user":"",
+        "url":"/brief.html?id=parcticeId001"
+    },
+
+    {
+        "name":"timer",
+        "user":"",
+        "url":"/timer.html?id=random001&lessonId=LSN_001&type=GRAB_ANSWER&studentId=ssr001"
+    }
+      
+]

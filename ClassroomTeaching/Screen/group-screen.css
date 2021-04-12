@@ -1,0 +1,229 @@
+.app-toolbar {
+  position: absolute;
+  bottom: 0px;
+  overflow: hidden; }
+  .app-toolbar .disable-show {
+    background-color: white;
+    color: black; }
+  .app-toolbar .bright-button {
+    background-color: #feb543; }
+  .app-toolbar .toolbar-button {
+    padding: 5px; }
+  .app-toolbar .zoom-button {
+    width: 60px;
+    height: 60px;
+    margin-left: 60px;
+    background-color: #000000; }
+    .app-toolbar .zoom-button .page-icon {
+      margin: 12px;
+      color: #ffffff;
+      font-size: 36px; }
+    .app-toolbar .zoom-button .bright {
+      background: linear-gradient(135deg, #f86a11 0%, #feb543 100%); }
+  .app-toolbar .pagination-show {
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start; }
+    .app-toolbar .pagination-show .page-direction {
+      width: 60px;
+      height: 60px; }
+      .app-toolbar .pagination-show .page-direction .page-icon {
+        margin: 12px; }
+      .app-toolbar .pagination-show .page-direction .bright {
+        font-size: 36px;
+        color: #FFFFFF; }
+      .app-toolbar .pagination-show .page-direction .dark {
+        font-size: 36px;
+        color: #47494E; }
+    .app-toolbar .pagination-show .page-size-show {
+      width: 24px;
+      margin-top: 20px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 0px;
+      text-align: center; }
+    .app-toolbar .pagination-show i[disabled="disabled"] {
+      pointer-events: none; }
+  .app-toolbar .showModel {
+    margin-left: 60px; }
+    .app-toolbar .showModel .model-active {
+      background-color: white;
+      color: black; }
+  .app-toolbar .screenInfo {
+    height: 60px;
+    width: 200px;
+    margin-left: 60px; }
+    .app-toolbar .screenInfo span {
+      height: 20px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 14px;
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: bold; }
+
+.screen {
+  width: 100%;
+  height: calc(100vh - 80px); }
+  .screen .phoneScreen {
+    width: 100%;
+    height: 100%; }
+    .screen .phoneScreen .notic-info {
+      width: 520px;
+      height: 100%;
+      float: left;
+      color: white;
+      background: rgba(0, 0, 0, 0.9); }
+      .screen .phoneScreen .notic-info h3 {
+        margin-top: 321px;
+        margin-left: 38px;
+        font-size: 38px;
+        color: rgba(255, 255, 255, 0.5); }
+      .screen .phoneScreen .notic-info p {
+        margin-left: 38px;
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.5); }
+    .screen .phoneScreen .phoneScreen-content {
+      background: #000000;
+      width: calc(100% - 520px);
+      height: 100%;
+      float: left; }
+      .screen .phoneScreen .phoneScreen-content .channel {
+        display: inline-block;
+        box-sizing: border-box; }
+        .screen .phoneScreen .phoneScreen-content .channel .styleFull {
+          width: 100%;
+          height: 100%; }
+          .screen .phoneScreen .phoneScreen-content .channel .styleFull .channelData {
+            width: 100%;
+            height: 100%;
+            padding-top: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            text-align: center; }
+            .screen .phoneScreen .phoneScreen-content .channel .styleFull .channelData .show-warning .boardImg {
+              width: 240px;
+              height: 128px;
+              position: absolute;
+              text-align: center;
+              margin: auto;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0; }
+              .screen .phoneScreen .phoneScreen-content .channel .styleFull .channelData .show-warning .boardImg i {
+                height: 80px;
+                font-size: 60px;
+                color: rgba(255, 255, 255, 0.6); }
+              .screen .phoneScreen .phoneScreen-content .channel .styleFull .channelData .show-warning .boardImg .message {
+                width: 100%;
+                height: 20%;
+                font-size: 20px;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.6); }
+        .screen .phoneScreen .phoneScreen-content .channel .styleOne {
+          margin-left: 12%;
+          margin-right: 12%;
+          height: 100%;
+          width: 76%; }
+          .screen .phoneScreen .phoneScreen-content .channel .styleOne .channelData .show-warning .boardImg {
+            width: 30%;
+            height: 30%;
+            position: absolute;
+            text-align: center;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0; }
+            .screen .phoneScreen .phoneScreen-content .channel .styleOne .channelData .show-warning .boardImg i {
+              height: 80%;
+              font-size: 60px;
+              color: rgba(255, 255, 255, 0.6); }
+            .screen .phoneScreen .phoneScreen-content .channel .styleOne .channelData .show-warning .boardImg .message {
+              width: 100%;
+              height: 20%;
+              text-align: center;
+              color: rgba(255, 255, 255, 0.6); }
+        .screen .phoneScreen .phoneScreen-content .channel .styleTwo {
+          width: 100%;
+          height: 84%;
+          margin-top: 6%; }
+          .screen .phoneScreen .phoneScreen-content .channel .styleTwo .channelData .show-warning .boardImg {
+            width: 35%;
+            height: 35%;
+            position: absolute;
+            text-align: center;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0; }
+            .screen .phoneScreen .phoneScreen-content .channel .styleTwo .channelData .show-warning .boardImg i {
+              height: 80%;
+              font-size: 60px;
+              color: rgba(255, 255, 255, 0.6); }
+            .screen .phoneScreen .phoneScreen-content .channel .styleTwo .channelData .show-warning .boardImg .message {
+              width: 100%;
+              height: 20%;
+              text-align: center;
+              color: rgba(255, 255, 255, 0.6); }
+        .screen .phoneScreen .phoneScreen-content .channel .styleThree {
+          width: 100%;
+          height: 100%; }
+          .screen .phoneScreen .phoneScreen-content .channel .styleThree .channelData .show-warning .boardImg {
+            width: 40%;
+            height: 40%;
+            position: absolute;
+            text-align: center;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0; }
+            .screen .phoneScreen .phoneScreen-content .channel .styleThree .channelData .show-warning .boardImg i {
+              height: 80%;
+              font-size: 50px;
+              color: rgba(255, 255, 255, 0.6); }
+            .screen .phoneScreen .phoneScreen-content .channel .styleThree .channelData .show-warning .boardImg .message {
+              width: 100%;
+              height: 20%;
+              font-size: 5px;
+              text-align: center;
+              color: rgba(255, 255, 255, 0.6); }
+        .screen .phoneScreen .phoneScreen-content .channel .channelData {
+          height: calc(100% - 60px);
+          padding-top: 30px;
+          padding-left: 30px;
+          padding-right: 30px; }
+          .screen .phoneScreen .phoneScreen-content .channel .channelData .show-warning {
+            width: 100%;
+            height: 100%;
+            position: relative; }
+        .screen .phoneScreen .phoneScreen-content .channel .channelName {
+          padding-left: 30px;
+          height: 60px;
+          color: #999999; }
+          .screen .phoneScreen .phoneScreen-content .channel .channelName span {
+            height: 22px;
+            line-height: 60px;
+            padding-bottom: 19px; }
+      .screen .phoneScreen .phoneScreen-content .styleFull {
+        width: 100%;
+        height: 100%; }
+      .screen .phoneScreen .phoneScreen-content .styleOne {
+        width: 50%;
+        height: 50%; }
+      .screen .phoneScreen .phoneScreen-content .styleTwo {
+        width: 33.3%;
+        height: 50%; }
+      .screen .phoneScreen .phoneScreen-content .styleThree {
+        width: 25%;
+        height: 33.3%; }
+    .screen .phoneScreen .notShowNotice {
+      width: 100%; }
+
+#fullScreen {
+  margin-left: 60px; }

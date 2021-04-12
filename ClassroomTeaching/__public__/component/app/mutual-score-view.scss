@@ -1,0 +1,48 @@
+@import "../../../../__public__/style/app/variable.scss";
+
+mutual-score-view {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+
+    .state-info {
+        overflow: hidden;
+        padding: 20px 0;
+        width: 0;
+        white-space: nowrap;
+        transition: width 0.2s ease;
+
+        &.open {
+            width: 700px;
+        }
+
+        .target-info,
+        .score-time,
+        .score-count,
+        .average-score {
+            display: inline-block;
+            padding-left: 60px;
+            vertical-align: middle;
+            font-size: $text-size-control;
+            font-weight: bold;
+            line-height: 20px;
+        }
+
+        .target-info {
+            img,
+            .target-name {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            img {
+                overflow: hidden;
+                margin-right: 14px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+/* colors */
+/* font */
+/* control layouts */
+.app-toolbar {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  margin: 0;
+  height: 80px;
+  width: 100%;
+  font-size: 0;
+  color: #fff;
+  background-color: #000;
+  border-top: 1px solid #333;
+  backdrop-filter: blur(13.6px); }
+  .app-toolbar .toolbar-button {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 10px 16px;
+    min-width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    text-align: center; }
+    .app-toolbar .toolbar-button.square {
+      width: 60px;
+      max-width: 60px;
+      padding: 10px 6px; }
+    .app-toolbar .toolbar-button:active, .app-toolbar .toolbar-button.actived {
+      background-color: #fff;
+      border-color: #fff;
+      color: #333; }
+    .app-toolbar .toolbar-button.hilight-primary:active, .app-toolbar .toolbar-button.hilight-primary.actived {
+      background: linear-gradient(135deg, #f86a11 0%, #feb543 100%);
+      border-color: transparent;
+      color: #fff; }
+    .app-toolbar .toolbar-button:disabled, .app-toolbar .toolbar-button.hilight-primary:disabled {
+      background: none;
+      background-color: rgba(51, 51, 51, 0.7);
+      border-color: transparent;
+      color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(13.6px); }
+    .app-toolbar .toolbar-button + .toolbar-button {
+      margin-left: 10px; }
+  .app-toolbar .icon-button {
+    position: relative;
+    margin: 0;
+    padding: 15px 0;
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    text-align: center; }
+    .app-toolbar .icon-button i {
+      font-size: 36px;
+      color: #fff;
+      background-color: transparent; }
+    .app-toolbar .icon-button[disabled] i {
+      color: rgba(255, 255, 255, 0.3); }
+    .app-toolbar .icon-button + .icon-button {
+      margin-left: 5px; }

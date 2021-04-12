@@ -1,0 +1,9 @@
+[{
+    "name": "default",
+    "user": "",
+    "url": "/index.html?classroomid=asd&scorelocation=student&lessonid=lesson01"
+}, {
+    "name": "score",
+    "user": "",
+    "url": "/score.html?classroomid=asd&studentid=asdasd&studentname=吴亦凡"
+}]

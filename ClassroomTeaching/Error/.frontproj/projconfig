@@ -1,0 +1,11 @@
+{
+  "[version]": "1.0",
+  "name": "ClassroomTeaching.Error",
+  "server": {
+    "port": 16202,
+    "useProfile": true,
+    "useTimestamp": true
+  },
+  "include_files": [],
+  "exclude_files": []
+}

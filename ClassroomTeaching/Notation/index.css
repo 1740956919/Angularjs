@@ -1,0 +1,93 @@
+/* colors */
+/* font */
+/* control layouts */
+.notation-area {
+  position: absolute;
+  top: 0;
+  bottom: 80px;
+  width: 100%;
+  background-color: #000; }
+  .notation-area .canvas-container canvas {
+    display: block;
+    cursor: crosshair; }
+  .notation-area .background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    user-select: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; }
+
+.app-toolbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-width: 1024px; }
+  .app-toolbar .background-switches {
+    margin-right: 40px; }
+  .app-toolbar .action-buttons {
+    margin: 0 40px; }
+  .app-toolbar .color-swatches {
+    margin: 14px 40px; }
+    .app-toolbar .color-swatches .swatch {
+      position: relative;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      background-color: #000;
+      margin-right: 10px;
+      cursor: pointer; }
+      .app-toolbar .color-swatches .swatch:last-of-type {
+        margin-right: 0; }
+      .app-toolbar .color-swatches .swatch.selected {
+        cursor: default; }
+        .app-toolbar .color-swatches .swatch.selected:after {
+          content: ' ';
+          position: absolute;
+          left: -1px;
+          top: -1px;
+          right: -1px;
+          bottom: -1px;
+          border: 2px solid #D9DEE4; }
+      .app-toolbar .color-swatches .swatch.outlined {
+        border: 1px solid rgba(217, 222, 228, 0.3); }
+        .app-toolbar .color-swatches .swatch.outlined.selected:after {
+          left: -2px;
+          top: -2px;
+          right: -2px;
+          bottom: -2px; }
+  .app-toolbar .size-swatches {
+    margin: 14px 40px; }
+    .app-toolbar .size-swatches .swatch {
+      position: relative;
+      display: inline-block;
+      padding: 6px;
+      width: 32px;
+      height: 32px;
+      background-color: transparent;
+      margin-right: 15px;
+      cursor: pointer; }
+      .app-toolbar .size-swatches .swatch .pointer {
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        border: 2px solid rgba(228, 227, 227, 0.3);
+        border-radius: 50%; }
+      .app-toolbar .size-swatches .swatch:last-of-type {
+        margin-right: 0; }
+      .app-toolbar .size-swatches .swatch.selected {
+        cursor: default; }
+        .app-toolbar .size-swatches .swatch.selected .pointer:after {
+          content: ' ';
+          position: absolute;
+          left: -1px;
+          top: -1px;
+          right: -1px;
+          bottom: -1px;
+          border: 2px solid #fff;
+          border-radius: 50%; }

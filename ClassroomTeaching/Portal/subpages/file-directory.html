@@ -1,0 +1,14 @@
+<div class="directory-container">
+    <file-browse on-init="getFileBrowseInstance" on-select="getSelectedItem"></file-browse>
+    <div class="app-toolbar">
+        <button class="toolbar-button hilight-primary" ng-click="cancel()">
+            取消
+        </button>
+        <button class="toolbar-button hilight-primary" ng-disable="isRefreshing" ng-click="refresh()">
+            刷新
+        </button>
+        <button class="toolbar-button hilight-primary cover-button-loaction" ng-disabled="selectedItem.type != 'FILE'" ng-click="startImportLesson()">
+            导入课程
+        </button>
+    </div>
+</div>

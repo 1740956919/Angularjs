@@ -1,0 +1,21 @@
+[
+    {
+        "LessonId":"LSN_E6CEF08C81A6488293CC1400E7FBC4F2",
+        "LessonName":"Unit3",
+        "TeachingClassName":"临时教学班",
+        "TeacherName":"临时教师",
+        "BeginTime":"2020-11-26T08:00:28+08:00",
+        "EndTime":"2020-11-26T09:30:28+08:00",
+        "StudentCount":6,
+        "State":"未同步"
+    },
+    {
+        "LessonId":"LSN_EDFAB1C6B8E8442F8E8DDC41BE7C5ED7",
+        "LessonName":"Unit2",
+        "TeachingClassName":"临时教学班",
+        "TeacherName":"临时教师",
+        "BeginTime":"2020-11-27T08:00:28+08:00",
+        "EndTime":"2020-11-27T09:30:28+08:00",
+        "StudentCount":6,
+        "State":"未同步"
+    }]

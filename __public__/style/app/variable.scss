@@ -1,0 +1,39 @@
+/* colors */
+$app-bg-default: #000;
+$app-bg-invert: #fff;
+$app-bg-overlay: rgba(#000, 0.6);
+// $app-bg-toolbar: rgba(#333, 0.2);
+$app-bg-toolbar: $app-bg-default;
+$app-overlay-blur: 13.6px;
+
+$app-toolbar-btn-bg-disable: rgba(#333, 0.7);
+$app-toolbar-btn-fg-disable: rgba(#fff, 0.3);
+
+$color-primary: #ff6f20;
+$color-primary-1: #ff9319;
+$gradient-primary: linear-gradient(135deg, #f86a11 0%, #feb543 100%);
+
+$text-color-base: #fff;
+$text-color-light: #999;
+$text-color-invert: #333;
+
+$border-color-base: #333;
+$border-color-control-highlit: #d9dee4;
+$border-color-btn: rgba(#fff, 0.2);
+
+/* font */
+$font-default: "PingFang SC","Microsoft YaHei","微软雅黑","Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,sans-serif;
+
+$text-size-hint: 12px;          // 提示文本
+$text-size-control: 14px;       // 控件(如按钮和工具栏文字)
+$text-size-info: 16px;          // 显示内容的附属信息(如卡片下的说明文字)
+$text-size-data: 20px;          // 给用户呈现的数据文本
+$text-size-header: 30px;        // 页面的标题文本
+$text-size-header-small: 18px;  // 页面小标题
+
+/* control layouts */
+$sidebar-width: 80px;
+$sidebar-btn-height: 70px;
+
+$toolbar-height: 80px;
+$toolbar-btn-size: 60px;

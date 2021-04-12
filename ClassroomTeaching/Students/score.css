@@ -1,0 +1,88 @@
+body, html {
+  background: rgba(0, 0, 0, 0); }
+
+.score-container {
+  width: 375px;
+  height: 250px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(30px); }
+  .score-container .top-container {
+    margin: 10px 10px 0 10px;
+    display: flex; }
+    .score-container .top-container .text-container {
+      margin: 10px 10px 0 10px; }
+      .score-container .top-container .text-container span {
+        color: white;
+        font-size: 18px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+    .score-container .top-container .flex-auto {
+      flex: auto; }
+    .score-container .top-container .close-container {
+      width: 25px;
+      height: 25px;
+      margin: 5px 5px 0 0; }
+      .score-container .top-container .close-container .close-background-color {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        background-color: white;
+        z-index: -1;
+        position: relative;
+        top: -20px;
+        right: -5px; }
+      .score-container .top-container .close-container i {
+        color: #333333;
+        font-size: 25px; }
+        .score-container .top-container .close-container i:hover {
+          cursor: pointer; }
+  .score-container .prase-container {
+    width: calc(100% - 40px);
+    height: 58px;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex; }
+    .score-container .prase-container .item {
+      width: 33.33%;
+      height: 100%;
+      cursor: pointer; }
+      .score-container .prase-container .item i {
+        font-size: 36px;
+        margin-left: 38px;
+        color: #3DE792; }
+      .score-container .prase-container .item div {
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-top: 5px; }
+  .score-container .step-container {
+    width: calc(100% - 40px);
+    height: 58px;
+    margin-left: 20px;
+    margin-top: 30px;
+    display: flex; }
+    .score-container .step-container .item {
+      width: 33.33%;
+      height: 100%;
+      cursor: pointer; }
+      .score-container .step-container .item i {
+        font-size: 36px;
+        margin-left: 38px;
+        color: #FF3B30;
+        transform: rotateX(180deg); }
+      .score-container .step-container .item div {
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 17px;
+        letter-spacing: 0px;
+        text-align: center;
+        margin-top: 5px; }

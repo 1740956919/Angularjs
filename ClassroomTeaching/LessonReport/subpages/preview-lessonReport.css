@@ -1,0 +1,235 @@
+.top-container {
+  background: white;
+  overflow: hidden;
+  height: 100%; }
+  .top-container .title {
+    color: #333333;
+    font-family: PingFang SC;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0px;
+    text-align: left;
+    margin-left: 20px;
+    padding-top: 40px; }
+  .top-container .divide-line {
+    background: #EAEDF1;
+    width: 100%;
+    height: 1px;
+    margin-top: 20px; }
+  .top-container .record-container {
+    display: flex;
+    height: 100%; }
+    .top-container .record-container .image-show {
+      flex: auto;
+      padding: 33px 66px 132px 66px; }
+      .top-container .record-container .image-show .record-title {
+        color: #333333;
+        font-family: PingFang SC;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left; }
+      .top-container .record-container .image-show img {
+        width: 100%;
+        height: 86%;
+        max-width: 960px;
+        max-height: 505px;
+        padding-top: 20px; }
+    .top-container .record-container .record-show {
+      width: 640px;
+      border-left: 2px solid #EAEDF1;
+      padding: 30px 40px 0px 38px;
+      overflow-y: auto;
+      height: calc(100vh - 216px); }
+      .top-container .record-container .record-show .record-show-container {
+        width: 504px;
+        min-height: 150px;
+        display: flex; }
+        .top-container .record-container .record-show .record-show-container .record-time {
+          color: #333333;
+          font-family: PingFang SC;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: normal;
+          letter-spacing: 0px;
+          text-align: left;
+          margin-top: 10px; }
+        .top-container .record-container .record-show .record-show-container .icon-type {
+          margin-left: 20px; }
+          .top-container .record-container .record-show .record-show-container .icon-type .icon-container {
+            background: #FF9319;
+            box-shadow: 0px 8px 9px 0px rgba(0, 0, 0, 0.1473);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center; }
+            .top-container .record-container .record-show .record-show-container .icon-type .icon-container .page-icon {
+              font-size: 28px;
+              color: #FFFFFF; }
+          .top-container .record-container .record-show .record-show-container .icon-type .time-line {
+            background: #cccccc;
+            width: 1px;
+            height: 100%;
+            margin-left: 20px; }
+        .top-container .record-container .record-show .record-show-container .record {
+          margin-top: 10px;
+          margin-left: 20px; }
+          .top-container .record-container .record-show .record-show-container .record .record-detail-container {
+            display: flex;
+            justify-content: space-between; }
+            .top-container .record-container .record-show .record-show-container .record .record-detail-container .record-name {
+              color: #333333;
+              font-family: PingFang SC;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: normal;
+              letter-spacing: 0px;
+              text-align: left; }
+            .top-container .record-container .record-show .record-show-container .record .record-detail-container .record-detail {
+              color: #FF9319;
+              font-family: PingFang SC;
+              font-weight: bold;
+              font-size: 14px;
+              line-height: normal;
+              letter-spacing: 0px;
+              text-align: right;
+              cursor: pointer; }
+          .top-container .record-container .record-show .record-show-container .record .record-content {
+            background: #FFFFFF;
+            border: 1px solid #D9DEE4;
+            cursor: pointer;
+            width: 382px;
+            min-height: 80px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #333333;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+            display: flex; }
+            .top-container .record-container .record-show .record-show-container .record .record-content .simple-content {
+              padding: 14px 30px 14px 30px;
+              display: flex;
+              align-items: center; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .simple-content span {
+                max-width: 320px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis; }
+            .top-container .record-container .record-show .record-show-container .record .record-content .complex-content {
+              min-width: 185.41px;
+              padding: 20px 0px 20px 30px;
+              display: flex; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name {
+                max-height: 30px;
+                font-size: 17px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name .span-width {
+                  max-width: 100px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name .cover-max-width {
+                  max-width: 320px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name .no-portrait-width {
+                  max-width: 160px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name .portrait-and-singleitem-width {
+                  max-width: 265px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .main-item-name span {
+                  overflow: hidden;
+                  display: block;
+                  white-space: nowrap;
+                  text-overflow: ellipsis; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .thick-font {
+                font-size: 24px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .description {
+                color: #666666;
+                font-family: PingFang SC;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 17px;
+                letter-spacing: 0px;
+                text-align: left;
+                margin-top: 3px;
+                max-height: 18px;
+                overflow: hidden; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-container .description-location {
+                margin-top: 3px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .main-item-name {
+                font-size: 17px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .thick-font {
+                font-size: 24px;
+                margin-top: -2px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .description {
+                color: #666666;
+                font-family: PingFang SC;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 17px;
+                letter-spacing: 0px;
+                text-align: left; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .sub-item-name {
+                color: #333333;
+                font-family: PingFang SC;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+                margin-top: 9px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .item-name {
+                display: flex; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .item-description {
+                display: flex; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .item-description .description {
+                  color: #666666;
+                  font-family: PingFang SC;
+                  font-weight: 400;
+                  font-size: 12px;
+                  line-height: 17px;
+                  letter-spacing: 0px;
+                  text-align: left;
+                  margin-top: -4px;
+                  margin-left: 3px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .description-location {
+                margin-top: 3px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .portrait {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                border-radius: 50%;
+                margin-right: 15px; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .praise-container {
+                background: linear-gradient(135deg, #1DBDB7 0%, #3DE792 100%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .praise-container i {
+                  font-size: 20px;
+                  color: white; }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .trample-container {
+                background: linear-gradient(135deg, #FE323A 0%, #FF8644 97%, #FF8844 100%);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 15px; }
+                .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .trample-container i {
+                  font-size: 20px;
+                  color: white;
+                  transform: rotateX(180deg); }
+              .top-container .record-container .record-show .record-show-container .record .record-content .complex-content .cover-padding-left {
+                padding-left: 0px; }
+          .top-container .record-container .record-show .record-show-container .record .selected-record-content {
+            background: #FFFFFF;
+            border: 1px solid #FF9319;
+            box-shadow: 0px 4px 10px 0px rgba(70, 56, 56, 0.2); }

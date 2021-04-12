@@ -1,0 +1,240 @@
+@import '../../__public__/style/app/variable.scss';
+
+#cover-button-width {
+    min-width: max-content;
+    padding: 19px 15px 19px 15px;
+}
+
+#QRCodeContainer{
+    margin-top: 53px;
+    width: 242px;
+    height: 242px;
+}
+
+.portal-container{
+    width: 100%;
+    height: 100%;
+    .top-container{
+        width: 100%;
+        height: calc(100% - 80px);
+        background: #000000;
+        .background-image-container{
+            position: absolute;
+            width: 100%;
+            height: 296px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .lesson-container{
+            position: absolute;
+            margin-left: 470px;
+            margin-top: 42px;
+            .lesson-info{
+                .course-name{
+                    color: #FFFFFF;
+                    font-family: PingFang SC;
+                    font-weight: bold;
+                    font-size: 30px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+                .lesson-name-container{
+                    margin-top: 10px;
+                    display: flex;
+                    i{
+                        font-size: 22px;
+                        color: rgba(255,255,255,0.6);
+                    }
+                    .lesson-name{
+                        margin-left: 10px;
+                        color: rgba(255,255,255,1);
+                        font-family: PingFang SC;
+                        font-weight: regular;
+                        font-size: 16px;
+                        line-height: normal;
+                        letter-spacing: 0px;
+                        text-align: left;
+                    }
+                }
+                .class-name-container{
+                    margin-top: 10px;
+                    display: flex;
+                    i{
+                        font-size: 22px;
+                        color: rgba(255,255,255,0.6);
+                    }
+                    .class-name{
+                        margin-left: 10px;
+                        color: rgba(255,255,255,1);
+                        font-family: PingFang SC;
+                        font-weight: regular;
+                        font-size: 16px;
+                        line-height: normal;
+                        letter-spacing: 0px;
+                        text-align: left;
+                    }
+                }
+            }
+            .teacher-info-container{
+                margin-top: 30px;
+                display: flex;
+                img{
+                    width: 43px;
+                    background: rgba(255,255,255,0.6);
+                }
+                .teacher-info{
+                    margin-left: 14.05px;
+                    .teacher-name{
+                        margin-top: 4px;
+                        color: rgba(255,255,255,1);
+                        font-family: PingFang SC;
+                        font-weight: regular;
+                        font-size: 13px;
+                        line-height: normal;
+                        letter-spacing: 0px;
+                        text-align: left;
+                    }
+                    .teacher-position{
+                        color: rgba(255,255,255,0.6);
+                        font-family: PingFang SC;
+                        font-weight: regular;
+                        font-size: 12px;
+                        line-height: 17px;
+                        letter-spacing: 0px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        
+        .linear-gradient-container{
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+            width: 100%;
+            height: 296px;
+            position: absolute;
+        }
+        .sign-container{
+            width: 656px;
+            height: 295px;
+            padding-top: 353px;
+            margin-left: 553px;
+            display: flex;
+            .qrcode-container{
+                img{
+                    border: 4px solid white;
+                }
+            }
+            .sign-content{
+                margin-left: 60px;
+                width: 354px;
+                height: 295px;
+                .time{
+                    width: 354px;
+                    height: 233px;
+                    color: #FFFFFF;
+                    font-family: Open24DisplaySt;
+                    font-weight: normal;
+                    font-size: 200px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+                .text{
+                    margin-top: 20px;
+                    height: 42px;
+                    width: 432px;
+                    color: #FFFFFF;
+                    font-family: PingFang SC;
+                    font-weight: normal;
+                    font-size: 30px;
+                    line-height: normal;
+                    letter-spacing: 0px;
+                    text-align: left;
+                }
+            }
+        }
+        .wait-icon-container{
+            margin-left: 800px;
+            margin-top: 80px;
+            width: 240px;
+            height: 128px;
+            display: block;
+            .text{
+                margin-top: 20px;
+                color: rgba(255,255,255,1);
+                font-family: PingFang SC;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: center;
+            }
+            .icon-shape{
+                font-size: 80px;
+                margin-top: 5px;
+                margin-left: 80px;
+                color: rgba(255,255,255,0.6);
+            }
+        }
+    }
+    .app-toolbar{
+        .wait-start-container{
+            display: flex;
+        }
+        .cover-margin{
+            margin-right: 50px;
+        }
+        .class-over-text{
+            width: 126px;
+            height: 20px;
+            margin-top: 20px;
+            margin-left: 60px;
+            color: #FFFFFF;
+            font-family: PingFang SC;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: normal;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+        .import-progress-container{
+            margin-left: 26px;
+            margin-top: 20px;
+            display: flex;
+            .text{
+                color: #FFFFFF;
+                font-family: PingFang SC;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+            .progress{
+                height: 2px;
+                width: 143px;
+                background: #333333;
+                margin-top: 10px;
+                margin-left: 10px;
+                .active{
+                    height: 2px;
+                    background: #FF6F20;
+                }
+            }
+            .percentage{
+                margin-left: 10px;
+                color: rgba(255,255,255,0.6);
+                font-family: PingFang SC;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: normal;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+        }
+    }
+}

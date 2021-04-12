@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Practice.Timer" param="id={0}" />
+      
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Angular/extend/angular-material.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <!-- <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" /> -->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link rel="stylesheet" include-type="cross" type="text/css" href="/Views/__public__/style/app/control.css" />  
+    <link rel="stylesheet" type="text/css" href="timer.css" />
+    <!--Page style end-->
+
+    <title>计时器</title>
+</head>
+<body ng-app="ClassroomTeaching.Practice.Timer" ng-controller="TimerCtrl" >
+    <!-- page content here -->  
+    
+    <div class="timer" ng-class="{'border-color':state == 'COMPLETE'}" ng-cloak>
+        <div class = "ready" ng-if = "state == 'READY'">
+            <span>{{timer}}</span>
+        </div>
+        <div class = "progressing" ng-if = "state == 'PROGRESSING'">
+            <div class="studentInfo" >
+                <div class="student-img">
+                    <img ng-src="{{student.Photo|platformImage: 'avatar.thumbnail' }}"  ng-if = "type == 'RANDOM'"/> 
+                    <i class="lic lic-male-circle page-icon" ng-if = "type == 'GRAB_ANSWER'"></i>                    
+                </div>            
+                <div class="display-data">
+                    <span >{{showTime}}</span>
+                </div>                                                                        
+            </div>
+            <div class="progress-bar" 
+                ng-if = "type == 'RANDOM'"  
+                ng-style="{ width: timer / 5 * 100 + '%' }"
+                ng-class="{'bar-complete':timer == 5}"
+                ></div> 
+        </div>
+        <div class = "complete" ng-if = "state == 'COMPLETE'">
+            <div class = "studentInfo" >
+                <div class="student-img">
+                    <img ng-src="{{student.Photo|platformImage: 'avatar.thumbnail' }}"/> 
+                </div>                       
+                <div class="display-data">
+                    <span>{{student.Name}}</span>
+                </div>                                                    
+            </div>
+        </div>
+    </div>
+ 
+    
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <!-- <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Standard-1.0.0.js"></script> -->
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+   
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script src="index-service.js"></script>
+    <script src="timer.js"></script>
+    <!--Page script end-->
+</body>
+</html>

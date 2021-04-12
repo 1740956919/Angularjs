@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Students.Detail" param="sceneid={0}&relationtype={1}" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>学生管理</title>
+</head>
+<body ng-app="ClassroomTeaching.Students" ng-controller="MailCtrl">
+    <!-- page content here -->
+
+    <div class="students-container" ng-cloak>
+        <div class="top-container">
+            <div class="top-info">
+                <div>
+                    <img ng-show="!selectedStudent && !lessonInfo.signInfo.isSigning" ng-src="/Images/teaching-class.png" class="board-left"/>
+                    <img ng-show="selectedStudent" ng-src="{{selectedStudent.Portrait|platformImage:'avatar.cover'}}" class="board-left"/>
+                    <img ng-show="lessonInfo.signInfo.isSigning" ng-src="/Images/sign.png" class="sign-left"/>
+                </div>
+                <div class="board-right">
+                    <p class="message-title" ng-show="!selectedStudent && !lessonInfo.signInfo.isSigning" ng-bind="lessonInfo.teachingClassName"></p>
+                    <p class="message-content" ng-show="!selectedStudent && !lessonInfo.signInfo.isSigning && isOnClass">{{lessonInfo.logonCount}} / {{lessonInfo.totalCount}}</p>
+                    <p class="message-title" ng-show="selectedStudent" ng-bind="selectedStudent.Name"></p>
+                    <p class="message-content" ng-show="selectedStudent" ng-bind="selectedStudent.Number"></p>
+                    <div>
+                        <span class="sign-count" ng-show="lessonInfo.signInfo.isSigning">{{lessonInfo.signCount}}</span>
+                        <span class="message-title" ng-show="lessonInfo.signInfo.isSigning">/{{lessonInfo.totalCount}}</span>
+                    </div>
+                    <p class="message-content" ng-show="lessonInfo.signInfo.isSigning" ng-bind="lessonInfo.teachingClassName"></p>
+                </div>
+            </div>
+        </div>
+        <div class="divide-line"></div>
+        <div class="middle-container">
+            <div class="student-list-table" ng-show="isOnClass">
+                <table class="left-table" ng-show="presentStudent[0].length!=0 && !nullData">
+                    <tr class="header-row">
+                        <td style="width: 56px;">序号</td>
+                        <td>姓名</td>
+                        <td>学号</td>
+                        <td style="width: 90px;">签到状态</td>
+                        <td style="width: 104px;">时间</td>
+                    </tr>
+                    <tr class="content-row" ng-repeat="student in presentStudent[0] track by student.StudentId" 
+                    ng-class="{'no-logon': !student.IsLogon, 'selected-student':student.StudentId == selectedStudent.StudentId}" 
+                    ng-click="selectStudent(student)">
+                        <td ng-bind="student.Index" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td class="name" ng-class="{'no-logon': !student.IsLogon}">
+                            <img ng-src="{{student.Portrait|platformImage:'avatar.small'}}"/>
+                            <span class="span-distance" ng-bind="student.Name"></span>
+                        </td>
+                        <td ng-bind="student.Number" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">
+                            <div class="sign-state" ng-class="{'sign': student.IsSigned,'no-sign': !student.IsSigned}">
+                                <span>{{student.IsSigned|signStateFilter}}</span>
+                            </div>
+                        </td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">{{student.LatestActiveTime|signTimeFilter}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="student-list-table" ng-show="isOnClass">
+                <table class="left-table" ng-show="presentStudent[1].length!=0 && !nullData">
+                    <tr class="header-row">
+                        <td style="width: 56px;">序号</td>
+                        <td>姓名</td>
+                        <td>学号</td>
+                        <td style="width: 90px;">签到状态</td>
+                        <td style="width: 104px;">时间</td>
+                    </tr>
+                    <tr class="content-row" ng-repeat="student in presentStudent[1] track by student.StudentId" 
+                    ng-class="{'no-logon': !student.IsLogon, 'selected-student':student.StudentId == selectedStudent.StudentId}" 
+                    ng-click="selectStudent(student)">
+                        <td ng-bind="student.Index" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td class="name" ng-class="{'no-logon': !student.IsLogon}">
+                            <img ng-src="{{student.Portrait|platformImage:'avatar.small'}}"/>
+                            <span class="span-distance" ng-bind="student.Name"></span>
+                        </td>
+                        <td ng-bind="student.Number" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">
+                            <div class="sign-state" ng-class="{'sign': student.IsSigned,'no-sign': !student.IsSigned}">
+                                <span>{{student.IsSigned|signStateFilter}}</span>
+                            </div>
+                        </td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">{{student.LatestActiveTime|signTimeFilter}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="student-list-table" id="right-table-margin" ng-show="isOnClass">
+                <table class="left-table" ng-show="presentStudent[2].length!=0 && !nullData">
+                    <tr class="header-row">
+                        <td style="width: 56px;">序号</td>
+                        <td>姓名</td>
+                        <td>学号</td>
+                        <td style="width: 90px;">签到状态</td>
+                        <td style="width: 104px;">时间</td>
+                    </tr>
+                    <tr class="content-row" ng-repeat="student in presentStudent[2] track by student.StudentId" 
+                    ng-class="{'no-logon': !student.IsLogon, 'selected-student':student.StudentId == selectedStudent.StudentId}" 
+                    ng-click="selectStudent(student)">
+                        <td ng-bind="student.Index" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td class="name" ng-class="{'no-logon': !student.IsLogon}">
+                            <img ng-src="{{student.Portrait|platformImage:'avatar.small'}}"/>
+                            <span class="span-distance" ng-bind="student.Name"></span>
+                        </td>
+                        <td ng-bind="student.Number" ng-class="{'no-logon': !student.IsLogon}"></td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">
+                            <div class="sign-state" ng-class="{'sign': student.IsSigned,'no-sign': !student.IsSigned}">
+                                <span>{{student.IsSigned|signStateFilter}}</span>
+                            </div>
+                        </td>
+                        <td ng-class="{'no-logon': !student.IsLogon}">{{student.LatestActiveTime|signTimeFilter}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="null-student" ng-show="nullData">
+                <i class="lic lic-group-two"></i>
+                <div>暂无学员</div>
+            </div>
+        </div>
+        <div class="app-toolbar">
+            <button class="toolbar-button hilight-primary" ng-show="selectedStudent.IsLogon && isOnClass" ng-click="startPerformanceScore(selectedStudent.StudentId, selectedStudent.Name)">
+                评价
+            </button>
+            <mutual-score-view class="cover-margin" relation-type="student" on-error="showErrorMessage($error)" target="scoredTarget" on-begin="startMutualScore($state)" on-end="stopMutualScore($state)" ng-show="selectedStudent.IsLogon && isOnClass"></mutual-score-view>
+            <button class="toolbar-button hilight-primary cover-margin" ng-click="startSign()" ng-if="isOnClass && !isMutualScoring && !lessonInfo.signInfo.isSigning" ng-disabled="lessonInfo.totalCount == 0">签到</button>
+            <button class="toolbar-button hilight-primary cover-margin" ng-click="stopSign()" ng-if="isOnClass && !isMutualScoring && lessonInfo.signInfo.isSigning" ng-disabled="lessonInfo.totalCount == 0">停止</button>
+            <div class="pagination-show" ng-show="!nullData && !isMutualScoring && isOnClass">
+                <div class="page-icon">
+                    <i class="lic lic-arrow-left-circle" ng-click="previousPage()" ng-disabled="pageIndex==1"
+                        ng-class="{'bright':pageIndex>1, 'dark':pageIndex==1}"></i>
+                </div>
+                <p class="page-size-show" >{{pageIndex}}/{{pageCount}}</p>
+                <div class="page-icon">
+                    <i class="lic lic-arrow-right-circle" ng-click="nextPage()" ng-disabled="pageIndex==pageCount"
+                    ng-class="{'bright':pageIndex<pageCount, 'dark':pageIndex==pageCount}"></i>
+                </div>
+            </div>
+            <div class="sign-time" ng-show="lessonInfo.signInfo.isSigning">签到剩余时间：{{lessonInfo.signInfo.signDuringSeconds|periodFormatFilter:true}}</div>
+            <div class="sort-show" ng-show="!isMutualScoring && !lessonInfo.signInfo.isSigning && isOnClass">
+                <button class="toolbar-button square" ng-disabled="lessonInfo.totalCount == 0" ng-class="{actived:orderByName=='NUMBER'}" ng-click="sortStudentsBy('NUMBER')">学号<br />排序</button>
+                <button class="toolbar-button square" ng-disabled="lessonInfo.totalCount == 0" ng-class="{actived:orderByName=='NAME'}" ng-click="sortStudentsBy('NAME')">姓名<br />排序</button>
+                <button class="toolbar-button square" ng-disabled="lessonInfo.totalCount == 0" ng-class="{actived:orderByName=='SIGNSTATE'}" ng-click="sortStudentsBy('SIGNSTATE')">签到<br />排序</button>
+                <button class="toolbar-button square" ng-disabled="lessonInfo.totalCount == 0" ng-class="{actived:orderByName=='ACTIVETIME'}" ng-click="sortStudentsBy('ACTIVETIME')">时间<br />排序</button>
+            </div>
+            <div class="wait-class" ng-show="!isLoading&&!isOnClass">课程尚未开始，请先点击侧边栏中的上课按钮</div>
+        </div>
+    </div>
+
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/mutual-score-view.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/error-service.js"></script>
+    <script src="index-service.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

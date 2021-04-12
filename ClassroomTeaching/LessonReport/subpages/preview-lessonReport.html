@@ -1,0 +1,71 @@
+<div class="top-container">
+    <div class="title">课堂记录</div>
+    <div class="divide-line"></div>
+    <div class="record-container">
+        <div class="image-show narrow-scroll">
+            <div class="record-title">{{lessonInfo.TeachingClassName}} -{{lessonInfo.LessonName}}-{{lessonInfo.TeacherName}}-{{lessonInfo.BeginTime | date:'yyyy年MM月dd日 HH:mm'}}</div>
+            <img ng-if="selectedRecord.Image && selectedRecord.ImageType != 'DEFAULT'" ng-src="{{selectedRecord.Image|platformImage:'RECORD_PREVIEW'}}"/>
+            <img ng-if="selectedRecord.Image && selectedRecord.ImageType == 'DEFAULT'" ng-src="/images/lesson-record.png"/>
+        </div>
+        <div class="record-show narrow-scroll">
+            <div class="record-show-container" ng-repeat="record in records | orderBy:'RecordTime'">
+                <div class="record-time">{{record.RecordTime | date:'HH:mm'}}</div>
+                <div class="icon-type">
+                    <div class="icon-container">  
+                        <i class="lic lic-book-3d page-icon"  ng-if="record.Category == 'CLASS'"></i>
+                        <i class="lic lic-folder page-icon"  ng-if="record.Category == 'MATERIAL'"></i>
+                        <i class="lic lic-pencil page-icon"  ng-if="record.Category == 'EXERCISE'"></i>
+                        <i class="lic lic-star-fill page-icon"  ng-if="record.Category == 'EVALUATION'" ></i>
+                        <i class="lic lic-editing page-icon"  ng-if="record.Category == 'BLACKBOARD'"></i>
+                        <i class="lic lic-chat page-icon"  ng-if="record.Category == 'DISCUSSION'" ></i>                      
+                    </div>
+                    <div class="time-line" ng-show="$index != records.length-1"></div>
+                </div>
+                <div class="record">
+                    <div class="record-detail-container">
+                        <div class="record-name">{{record.Title}}</div>
+                        <div class="record-detail" ng-if="record.RelateData.IsRelated && record.RelateData.Title" ng-click="openFile(record.RelateData)">打开资料</div>
+                    </div>
+                    <div class="record-content" ng-show="record.ContentType == 'SIMPLE'" ng-class="{'selected-record-content': record == selectedRecord}" ng-click="selectRecord(record)">
+                        <div class="simple-content"><span>{{record.Content}}</span></div>
+                    </div>
+                    <div class="record-content" ng-show="record.ContentType == 'COMPLEX'" ng-class="{'selected-record-content': record == selectedRecord}" ng-click="selectRecord(record)">
+                        <div class="complex-content" ng-repeat="complexContent in record.ComplexContents" ng-class="{'cover-padding-left':$index != 0}">
+                            <img class="portrait" ng-if="complexContent.IconItem.Id&&complexContent.IconItem.IsPortrait" ng-src="{{complexContent.IconItem.Id|platformImage:'avatar.thumbnail'}}" />                   
+                            <div class="praise-container" ng-show="!complexContent.IconItem.IsPortrait&&complexContent.IconItem.Id=='PRAISE'">
+                                <i class="lic lic-thumb-up"></i>
+                            </div>
+                            <div class="trample-container" ng-show="!complexContent.IconItem.IsPortrait&&complexContent.IconItem.Id=='TRAMPLE'">
+                                <i class="lic lic-thumb-up"></i>
+                            </div>
+                            <div class="main-item-container" ng-show="!complexContent.SubItem.Name">
+                                <div class="main-item-name" ng-class="{'thick-font': !complexContent.IconItem.Id}">
+                                    <span class="span-width" 
+                                        ng-class="{'cover-max-width': record.ComplexContents.length == 1, 'no-portrait-width': !complexContent.IconItem&&record.ComplexContents.length != 1, 'portrait-and-singleitem-width': record.ComplexContents.length == 1&&complexContent.IconItem}">
+                                        {{complexContent.MainItem.Name}}
+                                    </span>
+                                </div>                         
+                                <div class="description" ng-class="{'description-location': complexContent.IconItem.Id}">{{complexContent.MainItem.Description}}</div>
+                            </div>
+                            <div ng-show="complexContent.SubItem.Name">
+                                <div class="item-name">
+                                    <div class="main-item-name" ng-class="{'thick-font': !complexContent.IconItem.Id}">{{complexContent.MainItem.Name}}&nbsp;</div>
+                                    <div class="sub-item-name">/&nbsp;{{complexContent.SubItem.Name}}</div>
+                                </div>
+                                <div class="item-description" ng-class="{'description-location': complexContent.IconItem.Id}">
+                                    <div class="description">{{complexContent.MainItem.Description}}&nbsp;</div>
+                                    <div class="description">/&nbsp;{{complexContent.SubItem.Description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="app-toolbar">
+        <button class="toolbar-button hilight-primary"  ng-click="back()">
+            返回
+        </button>
+    </div>
+</div>

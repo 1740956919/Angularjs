@@ -1,0 +1,30 @@
+@import "../../__public__/style/app/variable.scss";
+
+.warning-container {
+    height: calc(100% - #{$toolbar-height});
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $app-bg-default;
+
+    .warning-center {
+        margin: 0 auto;
+        text-align: center;
+        
+        .icon-size {
+            font-size: 80px;
+        }
+
+        .help-text-size {
+            font-size: $text-size-data;
+        }
+
+        .text-color {
+            color: $text-color-base;
+        }
+    }
+}
+
+.app-toolbar {
+    position: fixed;
+}

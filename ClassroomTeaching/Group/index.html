@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Group" param="lessonid={0}" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Fonts/fonts.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>分组安排</title>
+</head>
+<body ng-app="ClassroomTeaching.Group" ng-controller="MainCtrl">
+    <!-- page content here -->
+    <div class="group-container" ng-cloak>
+        <div class="group-title" >分组</div>
+        <div class="divid-line"></div>
+        <div class="grouped-students-container">
+                <div class="group" ng-show="group.IsShow" ng-repeat="group in groups">
+                    <div class="title">
+                        <div>{{group.Name}}</div> 
+                        <div class="member-count" ng-show="group.Members.length != 0">{{group.Members.length}}人</div>
+                    </div>
+                    <div class="member-container">
+                        <div class="member" ng-repeat="member in group.Members">
+                            <img ng-src="{{member.Portrait|platformImage:'avatar.small'}}"/>
+                            <span ng-bind="member.Name"></span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="app-toolbar">
+            <button class="toolbar-button hilight-primary" ng-if="!isGrouping&&isProcessing" ng-click="startGroup()" ng-disabled="groups.length == 0">
+                开始
+            </button>
+            <button class="toolbar-button hilight-primary" ng-show="isGrouping&&isProcessing" ng-click="completeGroup()">
+                完成
+            </button>
+            <div class="pagination-show" ng-show="isProcessing">
+                <div class="page-icon">
+                    <i class="lic lic-arrow-left-circle page-icon" ng-click="previousPage()" ng-disable="page.pageIndex == 1"
+                    ng-class="{'bright': page.pageIndex > 1, 'dark': page.pageIndex == 1}"></i>
+                </div>
+                <p class="page-size-show" >{{page.pageIndex}}/{{page.pageCount}}</p>
+                <div class="page-icon">
+                    <i class="lic lic-arrow-right-circle" ng-click="nextPage()" ng-disable="page.pageIndex == page.pageCount"
+                    ng-class="{'bright': page.pageIndex < page.pageCount, 'dark': page.pageIndex == page.pageCount}"></i>
+                </div>
+            </div>
+            <div class="normal-text-show" ng-show="isGrouping&&isProcessing">
+                时长: {{duringSeconds | ShowDuringSecondsFilter}}
+            </div>
+            <div class="normal-text-show" ng-show="isProcessing">
+                已分组: {{groupedStudentCount}}/{{totalStudentCount}}
+            </div>
+            <div class="normal-text-show wait-group-name" ng-show="isGrouping&&isProcessing">
+                等待分组: {{ungroupStudents}}
+            </div>
+            <div class="wait-class" ng-show="!isLoading&&!isProcessing">课程尚未开始，请先点击侧边栏中的上课按钮</div>
+        </div>
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    <script src="/SystemConfig.js"></script>
+
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script src="index-service.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/error-service.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

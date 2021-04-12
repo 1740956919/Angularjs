@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Material" param="sceneid={0}&issupportopen={1}" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Fonts/fonts.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.min.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/ClassroomTeaching/__public__/component/app/file-browse.css" />
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>资料展示</title>
+</head>
+<body ng-app="ClassroomTeaching.Material" ng-controller="MainCtrl" ng-cloak>
+    <!-- page content here -->
+        <file-browse on-init="getFileBrowseInstance" on-select="getSelectedItem" ng-show="!isUploading()" ></file-browse>
+        <div class="wait-container" ng-show="isUploading()">
+            <div class="wait-icon-container" >
+                <i class="lic lic-sandglass icon-shape"></i>
+                <div class="text">等待文件完成下发</div>
+            </div>
+        </div>
+        <div class="app-toolbar">
+            <button class="toolbar-button hilight-primary" id="cover-button-margin" ng-disabled="isRefreshing" ng-if="!isUploading()&&!isOpeningFile" ng-click="refresh()">
+                刷新
+            </button>
+            <button class="toolbar-button hilight-primary" ng-if="!isUploading()" ng-disabled="!(!isOpeningFile&&!isUploading()&&selectedItem.type == 'FILE')" ng-click="openFile()">
+                打开
+            </button>
+            <button class="toolbar-button hilight-primary" id="cover-button-padding" ng-if="!isLoading&&isMaterialOpened()&&canOpen&&isProcessing&&!isOpeningFile&&!isUploading()"
+                ng-disabled="isMaterialOpened()||selectedItem.type != 'FILE'||!isProcessing" ng-click="sendMaterial(selectedItem)">已下发
+            </button>
+            <button class="toolbar-button hilight-primary" ng-if="!isLoading&&!isMaterialOpened()&&canOpen&&isProcessing&&!isOpeningFile&&!isUploading()"
+            ng-disabled="isMaterialOpened()||selectedItem.type != 'FILE'||!isProcessing" ng-click="sendMaterial(selectedItem)"> 下发
+            </button>
+            <button class="toolbar-button hilight-primary" ng-if="isUploading()" 
+                ng-click="cancel()">
+                取消
+            </button>
+            <div>
+                <div class="import-progress-container" ng-show="isOpeningFile">
+                    <div class="text">打开文件中...</div>
+                </div>
+                <div class="import-progress-container" ng-show="isUploading()">
+                    <div class="text">文件下发中...</div>
+                    <div class="progress">
+                        <div class="active" ng-style="{ width: uploadResult.progress + '%' }"></div>
+                    </div>
+                    <div class="percentage">{{uploadResult.progress | number:0}}%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+
+    <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script>
+    <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/component/app/file-browse.js"></script>
+    <script include-type="cross" src="/Views/__public__/service/electron-upload.js"></script>
+    <script src="index-service.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Notation" param="" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>标注</title>
+</head>
+<body ng-app="ClassroomTeaching.Notation" ng-controller="MainCtrl">
+    <!-- page content here -->
+    <div id="notation-area" class="notation-area">
+        <canvas id="notation-canvas"></canvas>
+    </div>
+    <div class="app-toolbar">
+        <div class="background-switches ng-cloak">
+            <button class="toolbar-button square"
+                    ng-repeat="item in backgroundColors"
+                    ng-click="setBackgroundColor(item)"
+                    ng-class="{actived:item.color==settings.bgColor}"
+                    ng-bind="item.name"
+                    ng-disabled="lockScreen">
+            </button>
+        </div>
+        <div class="action-buttons ng-cloak">
+            <button class="icon-button" title="清空" ng-click="clearScreen()" ng-disabled="lockScreen">
+                <i class="lic lic-trashcan"></i>
+            </button>
+            <button class="icon-button" title="撤销" ng-click="undoManager.undo()" ng-disabled="!undoManager.canUndo||lockScreen">
+                <i class="lic lic-arrow-back-circle"></i>
+            </button>
+            <button class="icon-button" title="恢复撤销" ng-click="undoManager.redo()" ng-disabled="!undoManager.canRedo||lockScreen">
+                <i class="lic lic-arrow-forward-circle"></i>
+            </button>
+        </div>
+        <div class="color-swatches ng-cloak">
+            <div class="swatch"
+                 ng-repeat="item in brushColors"
+                 ng-class="{selected:item.color==settings.brushColor,outlined:item.outline}"
+                 ng-click="setBrushColor(item)"
+                 ng-style="{'background-color':item.color}"
+                 title="{{item.name}}">
+            </div>
+        </div>
+        <div class="size-swatches ng-cloak">
+            <div class="swatch"
+                 ng-repeat="item in brushSizes"
+                 ng-class="{selected:item.size==settings.brushSize}"
+                 ng-click="setBrushSize(item)"
+                 title="{{item.name}}">
+                <div class="pointer" ng-style="{transform:'scale('+item.iconScale+')'}"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Graphic/Fabric/4.1.0/fabric.min.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

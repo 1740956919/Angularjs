@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <!--LINDGE:meta begin-->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="entrance" content="ClassroomTeaching.Brainstorming" param="" />
+    <!--LINDGE:meta end-->
+    <!--LINDGE:style begin-->
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.IconFont/LINDGE-icon-vivo.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.min.css" />
+    <link include-type="global" rel="stylesheet" type="text/css" href="/CDN/Fonts/fonts.css" />
+    
+    <!--LINDGE:style end-->
+    <!--Page style begin-->
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/global.css" />
+    <link include-type="cross" rel="stylesheet" type="text/css" href="/Views/__public__/style/app/control.css" />
+    <link rel="stylesheet" type="text/css" href="uicontrols/splitter-view.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <!--Page style end-->
+
+    <title>头脑风暴</title>
+</head>
+<body ng-app="ClassroomTeaching.BrainStorming" ng-controller="MainCtrl">
+    <!-- page content here -->
+
+    <div class="brainstorming-container ng-cloak">
+        <div class="brainstorming-content">
+            <div class="brainstorming-board" ng-show="brainstormInfo.state=='DISCUSSING' || brainstormInfo.state=='COMPLETED'">
+                <div class="member-notes">
+                    <div class="notes-panel-header">头脑风暴</div>
+                    <div class="column-panel-list-container" note-drag-area="members">
+                        <div class="column-panel-list">
+                            <div class="column-panel" ng-repeat="column in memberNotes" ng-show="column.memberCollections.length>0">
+                                <div class="member-panel" ng-repeat="member in column.memberCollections">
+                                    <div class="panel-header">
+                                        <img class="portrait" ng-src="{{member.portrait|platformImage:'avatar.small'}}" />
+                                        <span ng-bind="member.name"></span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="note-container" note-path="{{member.authorId}}/{{note.id}}" transparent-color="{{note.containerColor}}" ng-repeat="note in member.notes" ng-style="{background: note.contentColor}">
+                                            <div class="note-item" ng-bind="note.content" transparent-color="{{note.contentColor}}" ng-style="{background: note.contentColor}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <splitter-scrubber on-init="onInit" on-move="onMove"></splitter-scrubber>
+                <div class="discuss-results" panel-width="27.583%">
+                    <div class="results-panel-header">讨论结果</div>
+                    <div class="category-panel-list-container">
+                        <div class="category-panel-list" ng-show="categories.length>0">
+                            <div class="category-panel" ng-repeat="category in categories" ng-show="category.notes.length>0">
+                                <div class="panel-header">
+                                    <div class="vote" ng-if="category.isVoted&&!voteInfo.isVoting">
+                                        <span></span>
+                                        <div ng-bind="category.voteCount"></div>
+                                    </div>
+                                    <img ng-if="!(category.isVoted&&!voteInfo.isVoting)" ng-src="/Images/folder.png" />
+                                    <span ng-bind="category.name"></span>
+                                </div>
+                                <div class="panel-body" note-drag-area="category" note-drag-data="{{category.categoryId}}">
+                                    <div class="note-container" categorized="true" note-path="{{category.categoryId}}/{{note.id}}" transparent-color="{{note.containerColor}}" ng-repeat="note in category.notes" ng-style="{background: note.contentColor}">
+                                        <div class="note-item" ng-bind="note.content" transparent-color="{{note.contentColor}}" ng-style="{background: note.contentColor}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="timing-board" ng-show="brainstormInfo.state=='PREPARING'">
+                <div class="timing-container">
+                    <span class="brainstorm-time">{{brainstormInfo.duringSeconds|periodFormatFilter:true}}</span>
+                    <span class="text">头脑风暴进行中...</span>
+                </div>
+            </div>
+        </div>
+        <div class="app-toolbar" ng-if="(isLocked && toolbarConfig.showToolbarUnderReviewing) || !isLocked">
+            <div class="toolbar-control" ng-class="{actived:voteInfo.isVoting}">
+                <button class="toolbar-button square hilight-primary" 
+                        ng-click="completeBrainstorm()"
+                        ng-if="brainstormInfo.state=='COMPLETED'&&toolbarConfig.showCompleteButton">结束<br/>互动</button>
+                <button class="toolbar-button square hilight-primary cover-button-margin" 
+                        ng-click="reviewBrainstorm()"
+                        ng-if="brainstormInfo.state!='COMPLETED'&&toolbarConfig.showStopButton">停止</button>
+                <button class="toolbar-button square hilight-primary" 
+                        ng-if="brainstormInfo.state!='COMPLETED'"
+                        ng-click="collectNotes()">收集<br/>点子</button>
+                <button class="toolbar-button square hilight-primary"
+                        ng-show="brainstormInfo.state!='COMPLETED'"
+                        ng-click="onToggleVote()"
+                        ng-class="{actived:voteInfo.isVoting}"
+                        ng-disabled="isLoading||voteInfo.isLoading||isUpdating||brainstormInfo.state!='DISCUSSING'||(categories.length<=0&&!voteInfo.isVoting)">
+                    <span ng-if="!voteInfo.isVoting">投票</span>
+                    <span ng-if="voteInfo.isVoting">结束<br/>投票</span>
+                </button>
+                <div class="voting-states">
+                    <div class="states-wrapper">
+                        <span class="vote-time">投票时长：{{voteInfo.duringSeconds|periodFormatFilter:true}}</span>
+                        <span class="vote-count">投票人数：{{voteInfo.joinCount}}/{{voteInfo.totalCount}}</span>
+                    </div>
+                </div>
+                <div class="brainstorming-time" ng-if="!voteInfo.isVoting&&toolbarConfig.showDuration">头脑风暴时长：{{brainstormInfo.duringSeconds|periodFormatFilter:true}}</div>
+                <div class="brainstorming-time" ng-if="brainstormInfo.state=='COMPLETED'&&toolbarConfig.showJoinCount">参与人数：{{brainstormInfo.joinCount}}/{{brainstormInfo.totalCount}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="note-preview-container" class="backdrop" style="display: none;">
+        <div class="note-previewer">
+            <div class="note-toolbar">
+                <button class="mini-btn">
+                    <i class="lic lic-minimize-circle"></i>
+                </button>
+                <button class="remove-btn" ng-show="!isLocked">
+                    <i class="lic lic-trashcan"></i>
+                </button>
+                <button class="create-btn" ng-show="memberNoteClicked&&!isLocked">
+                    <i class="lic lic-folder-plus"></i>
+                </button>
+                <button class="return-btn" ng-show="categoryNoteClicked&&!isLocked">
+                    <i class="lic lic-folder-minus"></i>
+                </button>
+            </div>
+            <div class="note-content"></div>
+        </div>
+    </div>
+
+    <div class="backdrop" id="note-category-create-container" style="display:none;">
+        <div class="category-creator">
+            <div class="title-input">
+                <input tabindex="-1" type="text" placeholder="等待输入..." />
+                <button class="remove-btn">
+                    <i class="lic lic-remove-circle-fill"></i>
+                </button>
+            </div>
+            <div class="note-preview">
+                <div class="note-item">
+                    <div class="note-wrapper"></div>
+                </div>
+                <div class="note-item" ng-show="showSecondNote">
+                    <div class="note-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--LINDGE:script begin-->
+    <script include-type="global" src="/CDN/Angular/1.5/angular.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-animate.js"></script>
+    <!-- <script include-type="global" src="/CDN/Angular/1.5/angular-cookies.js"></script> -->
+    <script include-type="global" src="/CDN/Angular/1.5/angular-loader.js"></script>
+    <script include-type="global" src="/CDN/Angular/1.5/angular-aria.js"></script>
+    <!-- <script include-type="global" src="/CDN/Angular/1.5/angular-messages.js"></script> -->
+    <script include-type="global" src="/CDN/Angular/1.5/angular-resource.js"></script>
+    <!-- <script include-type="global" src="/CDN/Angular/1.5/angular-ui-router.js"></script> -->
+    <!-- <script include-type="global" src="/CDN/Angular/extend/angular-material.js"></script> -->
+    <script include-type="global" src="/Translayer/Figure.Config/Angular/RouteTable"></script>
+    <script include-type="global" src="/Translayer/Figure.Config/ServerTime/global_init_time"></script>
+    <script include-type="global" src="/Framework/LINDGE.Service/LINDGE-Service-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.UI/LINDGE-UI-Core-1.0.0.js"></script>
+    <script include-type="global" src="/Framework/LINDGE.Platform/LINDGE-Platform-2.0.0.js"></script>
+    
+
+    <script src="/SystemConfig.js"></script>
+    <!--LINDGE:script end-->
+    <!--Page script begin-->
+    
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-proxy.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/client-init.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/toast-client.js"></script>
+    <script include-type="cross" src="/Views/ClassroomTeaching/__public__/service/app/error-service.js"></script>
+    <script src="uicontrols/splitter-view.js"></script>
+    <script src="index-service.js"></script>
+    <script src="index.js"></script>
+    <!--Page script end-->
+</body>
+</html>

@@ -1,0 +1,32 @@
+<div class="lessonExport-container">
+    <file-browse on-init="getFileBrowseInstance" on-select="getSelectedItem" ng-show="state == 'WAITING'"></file-browse>
+
+    <div class="wait-export" ng-show="state == 'CREATING' || state == 'DOWNLOADING'">
+        <div class="load-adboard">
+            <div class="load-icon">
+                <i class="lic lic-sandglass"></i>
+            </div>
+            <div class="load-explain">等待课堂记录完成导出</div>
+        </div>
+    </div>
+
+    <div class="app-toolbar">
+        <button class="toolbar-button hilight-primary" ng-click="cancel()">取消</button>
+        <button class="toolbar-button hilight-primary" ng-click="exportRecord()"
+            ng-show= "selectedItem.type == 'FOLDER' && state == 'WAITING'">导出</button>
+
+        <div class="import-progress-container" ng-show="state == 'CREATING'">
+            <div class="text">正在生成课堂记录...</div>
+            <div class="progress">
+                <div class="active" ng-style="{ width: jobQueryTask.progress + '%' }"></div>
+            </div>
+            <div class="percentage">{{jobQueryTask.progress | number:0}}%</div>
+        </div>
+        <div class="download-progress" ng-show="state == 'DOWNLOADING'">
+            <lui-waiting name="waiting4" waiting-exp="state == 'DOWNLOADING'">
+                <lui-waiting-infinity></lui-waiting-infinity>
+            </lui-waiting>            
+            <div class="dowmload-text">正在导出课堂记录...</div>                    
+        </div>
+    </div>
+</div>

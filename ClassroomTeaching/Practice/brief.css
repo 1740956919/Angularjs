@@ -1,0 +1,108 @@
+body, html {
+  background: rgba(0, 0, 0, 0);
+  margin: 0;
+  overflow: hidden; }
+
+.container {
+  width: 375px;
+  height: 296px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(30px);
+  border-radius: 10px; }
+
+.top-container {
+  margin: 10px 10px 0 10px;
+  display: flex; }
+  .top-container .text-container {
+    margin: 10px 10px 0 10px; }
+    .top-container .text-container span {
+      color: white;
+      font-size: 18px;
+      line-height: normal;
+      letter-spacing: 0px;
+      text-align: left; }
+  .top-container .flex-auto {
+    flex: auto; }
+  .top-container .close-container {
+    width: 25px;
+    height: 25px;
+    margin: 5px 5px 0 0; }
+    .top-container .close-container .close-background-color {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      background-color: white;
+      z-index: -1;
+      position: relative;
+      top: -20px;
+      right: -5px; }
+    .top-container .close-container i {
+      color: #333333;
+      font-size: 25px; }
+      .top-container .close-container i:hover {
+        cursor: pointer; }
+
+.content-container {
+  width: 100%; }
+  .content-container .chart {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #47494E; }
+    .content-container .chart .answer {
+      width: 74px;
+      padding-left: 27px;
+      display: flex;
+      flex-direction: column-reverse; }
+      .content-container .chart .answer .levelColor {
+        background-color: #f86a11; }
+      .content-container .chart .answer span {
+        display: inline-block;
+        text-align: center;
+        width: 20px;
+        line-height: 30px;
+        color: #ffffff;
+        font-size: 14px; }
+    .content-container .chart .level {
+      width: 20px;
+      background-color: #696969; }
+  .content-container .answer-options {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly; }
+    .content-container .answer-options .option {
+      height: 100%;
+      width: 74px;
+      text-align: center; }
+      .content-container .answer-options .option span {
+        display: inline-block;
+        line-height: 50px;
+        color: #ffffff;
+        font-size: 14px; }
+  .content-container .warnning-content {
+    width: 100%;
+    margin-top: 74px;
+    display: flex;
+    justify-content: center; }
+    .content-container .warnning-content .adBoard {
+      width: 90px;
+      height: 58px; }
+      .content-container .warnning-content .adBoard .boardImg {
+        width: 90px;
+        height: 40px;
+        text-align: center; }
+        .content-container .warnning-content .adBoard .boardImg i {
+          font-size: 36px;
+          color: #999999; }
+      .content-container .warnning-content .adBoard .message {
+        width: 90px;
+        height: 17px;
+        line-height: 17px;
+        font-size: 12px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.3); }

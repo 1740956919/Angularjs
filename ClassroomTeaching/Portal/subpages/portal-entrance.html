@@ -1,0 +1,81 @@
+<div class="portal-container">
+    <div class="top-container">
+        <div class="background-image-container" ng-show="relatedLessonInfo.isRelated && state!='Unstart'">
+            <img ng-show="!relatedLessonInfo.cover" ng-src="/Images/lessonGuide.png" />
+            <img ng-show="relatedLessonInfo.cover" ng-src="{{relatedLessonInfo.cover|platformImage:'card.cover'}}" />
+        </div>
+        <div class="lesson-container">
+            <div class="lesson-info" ng-show="relatedLessonInfo.isRelated && state!='Unstart'">
+                <div class="course-name">{{relatedLessonInfo.courseName}}</div>
+                <div class="lesson-name-container">
+                    <i class="lic lic-document-list"></i>
+                    <div class="lesson-name">{{relatedLessonInfo.lessonName}}</div>
+                </div>
+                <div class="class-name-container">
+                    <i class="lic lic-group-two-outline"></i>
+                    <div class="class-name">{{relatedLessonInfo.teachingClassName}}</div>
+                </div>
+            </div>
+            <div class="teacher-info-container" ng-show="relatedTeacherInfo.isRelated && state!='Unstart'">
+                <img ng-src="{{relatedTeacherInfo.teacherPortrait|platformImage:'avatar.small'}}"/>
+                <div class="teacher-info">
+                    <div class="teacher-name">{{relatedTeacherInfo.teacherName}}</div>
+                    <div class="teacher-position">教师</div>
+                </div>
+            </div>
+        </div>
+        <div class="linear-gradient-container"></div>
+        <div class="sign-container">
+            <div class="qrcode-container" id="QRCodeContainer"></div>
+            <div class="sign-content">
+                <div class="time" ng-bind="nowTime"></div>
+                <div class="text" ng-show="state=='Unstart'">等待老师开始上课...</div>
+                <div class="text" ng-show="state!='Unstart'">已开始上课,请同学们扫码登录...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-toolbar">
+        <div class="waite-start-container" ng-show="state=='Unstart'">
+            <button class="toolbar-button hilight-primary" ng-click="skipSign()">
+                跳过教师签到
+            </button>
+        </div>
+        <button class="toolbar-button hilight-primary cover-margin" ng-show="state=='InClass' && !isPrepareClassOver" ng-click="prepareClassOver()">
+            下课
+        </button>
+        <button class="toolbar-button hilight-primary" ng-click="prepareImportLesson()" ng-show="(state=='Unstart'||state=='InClass')&&!isPrepareClassOver">
+            导入课程
+        </button>
+        <div class="waite-start-container" ng-show="isPrepareClassOver">
+            <button class="toolbar-button hilight-primary" ng-click="cancelClassOver()">
+                取消
+            </button>
+            <button class="toolbar-button hilight-primary" ng-click="classOver()">
+                下课
+            </button>
+        </div>
+        <div class="class-over-text" ng-show="isPrepareClassOver">确认现在要下课吗?</div>
+        <div class="import-progress-container" ng-show="state=='LessonUploading'">
+            <div class="text">正在导入课程数据...</div>
+            <div class="progress">
+                <div class="active" ng-style="{ width: uploadResult.progress + '%' }"></div>
+            </div>
+            <div class="percentage">{{uploadResult.progress | number:0}}%</div>
+        </div>
+        <div class="import-progress-container" ng-show="state=='LessonImporting'">
+            <div class="text">正在加载课程数据...</div>
+            <div class="progress">
+                <div class="active" ng-style="{ width: jobQueryTask.progress + '%' }"></div>
+            </div>
+            <div class="percentage">{{jobQueryTask.progress | number:0}}%</div>
+        </div>
+        <div class="import-progress-container" ng-show="state=='LessonSynching'">
+            <div class="text">正在同步课程数据...</div>
+            <div class="progress">
+                <div class="active" ng-style="{ width: jobQueryTask.progress + '%' }"></div>
+            </div>
+            <div class="percentage">{{jobQueryTask.progress | number:0}}%</div>
+        </div>
+    </div>
+</div>

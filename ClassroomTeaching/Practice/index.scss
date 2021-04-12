@@ -1,0 +1,21 @@
+#randomButton{
+    margin-right: 60px;
+}
+
+.app-toolbar{
+    position: absolute;
+    bottom: 0px;
+    .wait-class{
+        color: #FFFFFF;
+        font-family: PingFang SC;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: normal;
+        letter-spacing: 0px;
+        text-align: left;
+        width: 280px;
+        height: 20px;    
+        margin-left: 16px;
+        margin-top: 20px;
+    }
+}

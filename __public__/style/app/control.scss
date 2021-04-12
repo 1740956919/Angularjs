@@ -1,0 +1,99 @@
+@import './variable.scss';
+
+.app-toolbar {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 0;
+    height: $toolbar-height;
+    width: 100%;
+    font-size: 0;
+    color: $text-color-base;
+    background-color: $app-bg-toolbar;
+    border-top: 1px solid $border-color-base;
+    backdrop-filter: blur($app-overlay-blur);
+
+    .toolbar-button {
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 10px 16px;
+        min-width: $toolbar-btn-size;
+        height: $toolbar-btn-size;
+        vertical-align: middle;
+        outline: 0;
+        border: 1px solid $border-color-btn;
+        color: $text-color-base;
+        background-color: rgba($app-bg-default, 0.7);
+        font-size: $text-size-control;
+        line-height: 20px;
+        font-weight: bold;
+        text-align: center;
+
+        &.square {
+            width: $toolbar-btn-size;
+            max-width: $toolbar-btn-size;
+            padding: 10px 6px;
+        }
+
+        &:active,
+        &.actived {
+            background-color: $app-bg-invert;
+            border-color: $app-bg-invert;
+            color: $text-color-invert;
+        }
+
+        &.hilight-primary {
+            &:active,
+            &.actived {
+                background: $gradient-primary;
+                border-color: transparent;
+                color: $text-color-base;
+            }
+        }
+
+        &:disabled,
+        &.hilight-primary:disabled {
+            background: none;
+            background-color: $app-toolbar-btn-bg-disable;
+            border-color: transparent;
+            color: $app-toolbar-btn-fg-disable;
+            backdrop-filter: blur($app-overlay-blur);
+        }
+
+        & + .toolbar-button {
+            margin-left: 10px;
+        }
+    }
+
+    .icon-button {
+        position: relative;
+        margin: 0;
+        padding: 15px 0;
+        width: $toolbar-btn-size;
+        min-width: $toolbar-btn-size;
+        max-width: $toolbar-btn-size;
+        height: $toolbar-btn-size;
+        vertical-align: middle;
+        outline: 0;
+        border: 0;
+        background-color: transparent;
+        text-align: center;
+
+        i {
+            font-size: 36px;
+            color: $text-color-base;
+            background-color: transparent;
+        }
+
+        &[disabled] {
+            i {
+                color: rgba($text-color-base, 0.3);
+            }
+        }
+
+        & + .icon-button {
+            margin-left: 5px;
+        }
+    }
+}

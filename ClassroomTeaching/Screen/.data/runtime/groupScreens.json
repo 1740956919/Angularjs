@@ -1,0 +1,22 @@
+[
+    {
+        "IsRecevice": false,
+        "DeviceId": "DeviceId001",
+        "DeviceName": "A组"
+    },
+    {
+        "IsRecevice": false,
+        "DeviceId": "DeviceId002",
+        "DeviceName": "B组"
+    },
+    {
+        "IsRecevice": false,
+        "DeviceId": "DeviceId003",
+        "DeviceName": "C组"
+    },
+    {
+        "IsRecevice": false,
+        "DeviceId": "DeviceId004",
+        "DeviceName": "D组"
+    }
+]

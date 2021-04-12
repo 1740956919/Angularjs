@@ -1,0 +1,13 @@
+{
+    "mode":"BLOCK ",
+    "id":"job_01",
+    "records": [],
+    "attrs":{
+        "LESSONINFO":{
+            "LessonId":"L-Unit1",         
+            "LessonReportName":"Unit1 2020/11/28 1:51"
+        },
+        "DOWNLOADDIRECTORY":"D://Text"
+    }, 
+    "state": "PROCESSING"
+}
